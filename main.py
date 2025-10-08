@@ -373,6 +373,7 @@ class Explorer:
 
     def move_forward(self):
         self.updateTileCount()
+        self.updateWallCount()
         self.moveForwardFunc()
         if self.direction == 90:
             self.position = (self.position[0], self.position[1] - 1)
@@ -508,6 +509,10 @@ class Explorer:
 
         if len(notVisitedNeighbors) > 0:
             # 未到達タイルが隣接している場合はそこに進む
+            # 直進、右、左、後退の順で優先
+            notVisitedNeighbors.sort(key=lambda x: (
+                x[0] - self.direction) % 360)
+
             targetDir, target = notVisitedNeighbors[0]
 
             turnAngle = (targetDir - self.direction + 360) % 360
@@ -673,7 +678,7 @@ def RunRobot():
             canvas.delete(f"tilecount_{x}_{y}")
     print("Robot is running...")
     canvas.delete("status")
-    canvas.create_text(400, 580, text="Robot is running...",
+    canvas.create_text(400, 450, text="Robot is running...",
                        fill="red", font=("Helvetica", 16, "bold"), tag="status")
     original_x, original_y = convertTileToCanvasCoords(
         field.jsonMapData.startTile.x, field.jsonMapData.startTile.y)
@@ -692,10 +697,10 @@ def RunRobot():
     explorer = Explorer(field, moveForwardFunc, turnFunc,
                         drawWallCount, drawTileCount)
     while robot_isRun:
-        if explorer.ExploreStep():
+        if explorer.ExploreStepWithDijkstra():
             print("Exploration completed.")
             canvas.delete("status")
-            canvas.create_text(400, 580, text="Exploration completed.",
+            canvas.create_text(400, 450, text="Exploration completed.",
                                fill="red", font=("Helvetica", 16, "bold"), tag="status")
             robot_isRun = False
 
@@ -817,6 +822,5 @@ showWallCountToggle.set(True)
 showWallCountToggleCheckbutton = Checkbutton(
     root, text=u"Show Wall Count", variable=showWallCountToggle)
 showWallCountToggleCheckbutton.pack(pady=10)
-
 
 root.mainloop()
