@@ -340,7 +340,7 @@
             "tile": {
                 "changeFloorTo": null,
                 "victims": null,
-                "blue": true,
+                "blue": false,
                 "reachable": true,
                 "checkpoint": false,
                 "speedbump": false,
@@ -357,7 +357,7 @@
             "virtualWall": null
         },
         "8,1,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -392,7 +392,7 @@
             "virtualWall": null
         },
         "10,1,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -480,7 +480,7 @@
             "tile": {
                 "changeFloorTo": null,
                 "victims": null,
-                "blue": false,
+                "blue": true,
                 "reachable": true,
                 "checkpoint": false,
                 "speedbump": false,
@@ -545,7 +545,7 @@
             "virtualWall": null
         },
         "3,2,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -641,7 +641,7 @@
             "virtualWall": null
         },
         "11,2,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -665,7 +665,7 @@
             "virtualWall": null
         },
         "13,2,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -871,7 +871,7 @@
             "tile": {
                 "changeFloorTo": null,
                 "victims": null,
-                "blue": false,
+                "blue": true,
                 "reachable": true,
                 "checkpoint": false,
                 "speedbump": false,
@@ -923,7 +923,7 @@
             "virtualWall": null
         },
         "12,3,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -958,7 +958,7 @@
             "virtualWall": null
         },
         "14,3,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -976,7 +976,7 @@
             "tile": {
                 "changeFloorTo": null,
                 "victims": null,
-                "blue": false,
+                "blue": true,
                 "reachable": true,
                 "checkpoint": false,
                 "speedbump": false,
@@ -1065,7 +1065,7 @@
             "virtualWall": null
         },
         "5,4,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -1113,7 +1113,7 @@
             "virtualWall": null
         },
         "9,4,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -1137,7 +1137,7 @@
             "virtualWall": null
         },
         "11,4,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -1244,7 +1244,7 @@
             "virtualWall": null
         },
         "2,5,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -1537,7 +1537,7 @@
             "virtualWall": null
         },
         "3,6,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -1561,7 +1561,7 @@
             "virtualWall": null
         },
         "5,6,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -1585,7 +1585,7 @@
             "virtualWall": null
         },
         "7,6,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -1828,7 +1828,7 @@
             "tile": {
                 "changeFloorTo": null,
                 "victims": null,
-                "blue": false,
+                "blue": true,
                 "reachable": true,
                 "checkpoint": false,
                 "speedbump": false,
@@ -1950,7 +1950,7 @@
             "virtualWall": null
         },
         "14,7,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -2033,7 +2033,7 @@
             "virtualWall": null
         },
         "3,8,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -2081,7 +2081,7 @@
             "virtualWall": null
         },
         "7,8,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -2105,7 +2105,7 @@
             "virtualWall": null
         },
         "9,8,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -2271,7 +2271,7 @@
             "virtualWall": null
         },
         "4,9,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -2341,7 +2341,7 @@
             "virtualWall": null
         },
         "8,9,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -2577,7 +2577,7 @@
             "virtualWall": null
         },
         "7,10,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -2625,7 +2625,7 @@
             "virtualWall": null
         },
         "11,10,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -2649,7 +2649,7 @@
             "virtualWall": null
         },
         "13,10,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -2715,7 +2715,7 @@
             "tile": {
                 "changeFloorTo": null,
                 "victims": null,
-                "blue": true,
+                "blue": false,
                 "reachable": true,
                 "checkpoint": false,
                 "speedbump": false,
@@ -2750,7 +2750,7 @@
             "tile": {
                 "changeFloorTo": null,
                 "victims": null,
-                "blue": true,
+                "blue": false,
                 "reachable": true,
                 "checkpoint": false,
                 "speedbump": false,
@@ -2767,7 +2767,7 @@
             "virtualWall": null
         },
         "4,11,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -2872,7 +2872,7 @@
             "virtualWall": null
         },
         "10,11,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -3025,7 +3025,7 @@
             "virtualWall": null
         },
         "3,12,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -3049,7 +3049,7 @@
             "virtualWall": null
         },
         "5,12,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -3145,7 +3145,7 @@
             "virtualWall": null
         },
         "13,12,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -3263,7 +3263,7 @@
             "virtualWall": null
         },
         "4,13,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -3298,7 +3298,7 @@
             "virtualWall": null
         },
         "6,13,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -3333,7 +3333,7 @@
             "virtualWall": null
         },
         "8,13,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -3521,7 +3521,7 @@
             "virtualWall": null
         },
         "3,14,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -3593,7 +3593,7 @@
             "virtualWall": null
         },
         "9,14,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -3617,7 +3617,7 @@
             "virtualWall": null
         },
         "11,14,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -3665,7 +3665,7 @@
             "virtualWall": null
         },
         "15,14,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -3724,7 +3724,7 @@
             "virtualWall": null
         },
         "2,15,0": {
-            "isWall": false,
+            "isWall": true,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -3759,7 +3759,7 @@
             "virtualWall": null
         },
         "4,15,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -3794,7 +3794,7 @@
             "virtualWall": null
         },
         "6,15,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,
@@ -3899,7 +3899,7 @@
             "virtualWall": null
         },
         "12,15,0": {
-            "isWall": true,
+            "isWall": false,
             "halfWall": 0,
             "isTile": false,
             "tile": null,

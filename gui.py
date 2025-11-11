@@ -176,7 +176,44 @@ class MapViewer:
                 self.canvas.delete(f"tilecount_{x}_{y}")
         print("Robot is running...")
         self.canvas.delete("status")
-        self.canvas.create_text(int(400*self.map_scale), int(450*self.map_scale), text="Robot is running...",
+        self.canvas.create_text(int(400*self.map_scale), int(650*self.map_scale), text="Robot is running...",
+                                fill="red", font=("Helvetica", int(16*self.map_scale), "bold"), tag="status")
+        original_x, original_y = self.convertTileToCanvasCoords(
+            self.fieldData.jsonMapData.startTile.x, self.fieldData.jsonMapData.startTile.y)
+        self.canvas.delete("robot")
+        self.canvas.create_oval(original_x - int(15*self.map_scale), original_y - int(15*self.map_scale), original_x +
+                                int(15*self.map_scale), original_y + int(15*self.map_scale), outline="red", width=2, tag="robot", fill="red")
+        self.canvas.create_oval(original_x - int(8*self.map_scale), original_y - int(14*self.map_scale), original_x -
+                                int(4*self.map_scale), original_y-int(4*self.map_scale), outline="black", width=2, tag="robot", fill="black")
+        self.canvas.create_oval(original_x + int(8*self.map_scale), original_y - int(14*self.map_scale), original_x +
+                                int(4*self.map_scale), original_y-int(4*self.map_scale), outline="black", width=2, tag="robot", fill="black")
+        self.canvas.update()
+        self.canvas.after(500)
+        self.pos = (self.fieldData.jsonMapData.startTile.x,
+                    self.fieldData.jsonMapData.startTile.y)
+        self.robot_dir = 90
+        self.robot_isRun = True
+
+        explorer = Explorer(self.fieldData, self.moveForwardFunc, self.turnFunc,
+                            self.drawWallCount, self.drawTileCount)
+        while self.robot_isRun:
+            if explorer.ExploreStepWithDijkstra():
+                print("Exploration completed. Total cost:", explorer.runCost)
+                self.canvas.delete("status")
+                self.canvas.create_text(int(400*self.map_scale), int(650*self.map_scale), text=f"Exploration completed. \nTotal cost: {explorer.runCost}",
+                                        fill="red", font=("Helvetica", int(16*self.map_scale), "bold"), tag="status")
+                self.robot_isRun = False
+
+    def RunRobotLegacy(self):
+        # タイルと壁の数をリセット
+        for x in range(self.fieldData.size[1]):
+            for y in range(self.fieldData.size[0]):
+                for dir in [0, 90, 180, 270]:
+                    self.canvas.delete(f"wallcount_{x}_{y}_{dir}")
+                self.canvas.delete(f"tilecount_{x}_{y}")
+        print("Robot is running...")
+        self.canvas.delete("status")
+        self.canvas.create_text(int(400*self.map_scale), int(650*self.map_scale), text="Robot is running...",
                                 fill="red", font=("Helvetica", int(16*self.map_scale), "bold"), tag="status")
         original_x, original_y = self.convertTileToCanvasCoords(
             self.fieldData.jsonMapData.startTile.x, self.fieldData.jsonMapData.startTile.y)
@@ -252,6 +289,9 @@ class MapViewer:
 
     def packButtons(self):
         runButton = Button(self.root, text="Run Robot", command=self.RunRobot)
+        runButton.pack(pady=10)
+        runButton = Button(self.root, text="Run Robot Legacy",
+                           command=self.RunRobotLegacy)
         runButton.pack(pady=10)
         stopButton = Button(self.root, text="Stop Robot",
                             command=self.StopRobot)

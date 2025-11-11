@@ -1205,7 +1205,7 @@
                 "black": false,
                 "ramp": false,
                 "steps": false,
-                "blue": true,
+                "blue": false,
                 "red": false,
                 "victims": {
                     "top": "None",
@@ -2205,7 +2205,7 @@
                 "black": false,
                 "ramp": false,
                 "steps": false,
-                "blue": true,
+                "blue": false,
                 "red": false,
                 "victims": {
                     "top": "None",
