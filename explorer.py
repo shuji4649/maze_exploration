@@ -2,14 +2,14 @@ from tkinter import IntVar
 import json
 from dataclasses import dataclass, field
 from typing import List, Optional, Dict, Any
-from tkinter import *
-from tkinter import ttk
+
 from collections import defaultdict
 import os
 import heapq
 import math
 from queue import PriorityQueue
 from field import Field
+import time
 
 
 @dataclass
@@ -315,21 +315,22 @@ class Explorer:
         for dir in [0, 90, 180, 270]:
             if self.tileCount[self.dir2NextPos(dir)] == 0 and info[(self.direction + dir) % 360] != "wall":
                 self.notVisitedTiles.add(self.dir2NextPos(dir))
-            if self.tileCount[self.dir2NextPos(dir)] == 1000:
-                info[(self.direction + dir) % 360] = "wall"
+            # if self.tileCount[self.dir2NextPos(dir)] == 1000:
+            #     info[(self.direction + dir) % 360] = "wall"
             if info[(self.direction + dir) % 360] == "wall":
                 wallCnt += 1
-
+        # print(self.position, self.direction, info)
         self.updateWallCount()
         self.tileCount[self.position] += 1
         self.notVisitedTiles.discard(self.position)
         if self.drawTileCount:
             self.drawTileCount(self.position, self.tileCount[self.position])
 
-        if wallCnt == 3:
-            self.tileCount[self.position] = 1000  # 行き止まりは非常に多く通ったことにする
-            if self.drawTileCount:
-                self.drawTileCount(self.position, self.tileCount[self.position])
+        # if wallCnt == 3:
+        #     self.tileCount[self.position] = 1000  # 行き止まりは非常に多く通ったことにする
+        #     if self.drawTileCount:
+        #         self.drawTileCount(
+        #             self.position, self.tileCount[self.position])
 
         if len(self.notVisitedTiles) == 0:
             return True
@@ -337,7 +338,9 @@ class Explorer:
         if info[(self.direction - 90) % 360] != "wall":  # 右にタイルがある
             # 前にタイルがある
             if info[self.direction] != "wall" and self.tileCount[self.dir2NextPos(0)] < self.tileCount[self.dir2NextPos(-90)]:
-                self.rotate(0)
+                if info[(self.direction + 90) % 360] != "wall" and self.tileCount[self.dir2NextPos(90)] < self.tileCount[self.dir2NextPos(0)]:  # 左にタイルがある
+                    self.rotate(90)
+                    self.updateWallCount()
             elif info[(self.direction+90) % 360] != "wall" and self.tileCount[self.dir2NextPos(90)] < self.tileCount[self.dir2NextPos(-90)]:  # 後ろにタイルがある
                 self.rotate(90)
                 self.updateWallCount()
@@ -349,11 +352,15 @@ class Explorer:
             if info[(self.direction + 90) % 360] != "wall" and self.tileCount[self.dir2NextPos(90)] < self.tileCount[self.dir2NextPos(0)]:  # 左にタイルがある
                 self.rotate(90)
                 self.updateWallCount()
+
             self.move_forward()
+
         elif info[(self.direction + 90) % 360] != "wall":  # 左にタイルがある
+
             self.rotate(90)
             self.updateWallCount()
             self.move_forward()
+
         else:  # 後ろにタイルがある（行き止まり）
             self.rotate(90)
             self.updateWallCount()

@@ -137,7 +137,7 @@ class MapViewer:
         elif angle == 180 or angle == -180:
             self.robot_dir = (self.robot_dir + 180) % 360
         else:
-            print("Error: Invalid turn angle")
+            print("Error: Invalid turn angle",angle)
 
         self.canvas.delete("robot")
         self.canvas.create_oval(robot_pos_x - int(15*self.map_scale), robot_pos_y - int(15*self.map_scale), robot_pos_x +

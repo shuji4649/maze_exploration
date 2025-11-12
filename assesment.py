@@ -74,6 +74,8 @@ def assess_fields(num_fields=500):
             "proposed_cost": cost_proposed
         })
         print(i, "completed")
+        if (cost_right_hand > 4000):
+            print("Oh no! High cost field:")
 
     # 結果をJSONに保存
     with open("assessment_results.json", "w") as f:
@@ -115,7 +117,7 @@ def plot_cost_comparison(results_file="assessment_results.json"):
     right_hand_costs = [result["right_hand_cost"] for result in results]
     proposed_costs = [result["proposed_cost"] for result in results]
     field_indices = list(range(len(results)))
-
+    plt.rcParams["font.size"] = 20
     plt.figure(figsize=(12, 6))
     plt.plot(field_indices, right_hand_costs,
              label="Right Hand Cost", marker='o')
