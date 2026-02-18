@@ -17,7 +17,7 @@ import anahori
 class MapViewer:
 
     def __init__(self):
-        self.map_scale = 0.5
+        self.map_scale = 0.6
         self.root = Tk()
         self.root.title("Map Viewer")
         self.root.geometry("800x1000")
@@ -26,11 +26,11 @@ class MapViewer:
                            font=("Helvetica", 10, "bold"))
         TitleLabel.pack(pady=10)
         self.packMapSelector()
-        self.canvas = Canvas(self.root, width=int(800 * self.map_scale),
-                             height=int(800 * self.map_scale), bg="white")
+        self.canvas = Canvas(self.root, width=int(800*0.4),
+                             height=int(800*0.4), bg="white")
         self.canvas.pack()
-        self.small_cell_size = int(10 * self.map_scale)
-        self.big_cell_size = int(50 * self.map_scale)
+        self.small_cell_size = int(15 * self.map_scale)
+        self.big_cell_size = int(45 * self.map_scale)
 
         self.pos = (0, 0)
         self.robot_dir = 90
@@ -91,7 +91,7 @@ class MapViewer:
 
     def get_color(self, cell_value):
         if cell_value == 0:
-            return "#D3D3D3"  # Light Gray for empty
+            return "#FCFCFC"  # Light Gray for empty
         elif cell_value == 1:
             return "#000000"  # Black for wall
         elif cell_value == 2:
@@ -124,7 +124,7 @@ class MapViewer:
         else:
             print("Error: Invalid robot direction")
         self.canvas.update()
-        self.canvas.after(5)
+        self.canvas.after(30)
 
     def turnFunc(self, angle):
         # 角度に応じてロボットを回転させる（ここでは単純に方向を変えるだけ）
@@ -165,7 +165,7 @@ class MapViewer:
         else:
             print("Error: Invalid robot direction after turn")
         self.canvas.update()
-        self.canvas.after(10)
+        self.canvas.after(20)
 
     def RunRobot(self):
         # タイルと壁の数をリセット
@@ -269,7 +269,7 @@ class MapViewer:
 
     def StopRobot(self):
         global robot_isRun
-        robot_isRun = False
+        self.robot_isRun = False
         self.canvas.delete("status")
         self.canvas.create_text(400, 580, text="Robot stopped.",
                                 fill="red", font=("Helvetica", 16, "bold"), tag="status")

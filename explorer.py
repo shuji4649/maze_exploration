@@ -10,6 +10,7 @@ import math
 from queue import PriorityQueue
 from field import Field
 import time
+import random
 
 
 @dataclass
@@ -88,7 +89,15 @@ class MappingField:
                 wallInfo = MappingDataWallInfo()
                 wallInfo.position = wallFieldCoord
                 wallInfo.isWall = isWall
+                # すでに登録されているものと矛盾が無いか確認
+                if wallFieldCoord in self.mapData.keys():
+                    existingWallInfo = self.mapData[wallFieldCoord]
+                    if existingWallInfo.isWall != isWall:
+                        print(
+                            "Error: Conflicting wall information at", wallFieldCoord)
+                        return False
                 self.mapData[wallFieldCoord] = wallInfo
+        return True
     # 指定したタイルから隣接四方向の壁の有無を返す
 
     def getWallInfo(self, tileCoord: tuple[int]) -> dict[int, bool]:
@@ -248,6 +257,10 @@ class Explorer:
 
         self.mapping = Mapping()
         self.runCost = 0
+        self.posError = [0, 0]  # 意図的に位置ずらしを入れるための変数
+        
+        # 走行履歴
+        self.runHistory: List[dict[str, Any]] = []
 
     def move_forward(self):
         self.updateTileCount()
@@ -265,6 +278,37 @@ class Explorer:
             self.position = (self.position[0] + 1, self.position[1])
         else:
             print("Error: Invalid direction")
+        # まだ位置ずらしがされていなければ一定の確立で位置ずらしを適用
+        # if self.posError == [0, 0]:
+        #     if random.random() < 0.01:
+        #         _posError = random.choice([-1, 1])
+        #         info = self.field.get_tile_info(
+        #             self.position[0], self.position[1])
+        #         if _posError == 1:
+        #             # 前方に壁が無いか確認
+        #             if info[self.direction] != "wall":
+        #                 # 前方にずらす
+        #                 if self.direction == 90:
+        #                     self.posError = [0, -1]
+        #                 elif self.direction == 270:
+        #                     self.posError = [0, 1]
+        #                 elif self.direction == 180:
+        #                     self.posError = [-1, 0]
+        #                 elif self.direction == 0:
+        #                     self.posError = [1, 0]
+        #         else:
+        #             # 後方に壁が無いか確認
+        #             backDir = (self.direction + 180) % 360
+        #             if info[backDir] != "wall":
+        #                 # 後方にずらす
+        #                 if backDir == 90:
+        #                     self.posError = [0, -1]
+        #                 elif backDir == 270:
+        #                     self.posError = [0, 1]
+        #                 elif backDir == 180:
+        #                     self.posError = [-1, 0]
+        #                 elif backDir == 0:
+        #                     self.posError = [1, 0]
 
     def rotate(self, angle):  # 反時計回りが正
         self.updateWallCount()
@@ -303,6 +347,57 @@ class Explorer:
         else:
             print("Error: Invalid direction")
             return self.position
+
+    # 完全に右手法だけ
+    def ExploreStepOnlyRight(self):
+        info = self.field.get_tile_info(
+            *self.position)
+
+        # print(info, self.position, self.direction)
+        wallCnt = 0
+        for dir in [0, 90, 180, 270]:
+            if self.tileCount[self.dir2NextPos(dir)] == 0 and info[(self.direction + dir) % 360] != "wall":
+                self.notVisitedTiles.add(self.dir2NextPos(dir))
+            # if self.tileCount[self.dir2NextPos(dir)] == 1000:
+            #     info[(self.direction + dir) % 360] = "wall"
+            if info[(self.direction + dir) % 360] == "wall":
+                wallCnt += 1
+        # print(self.position, self.direction, info)
+        self.updateWallCount()
+        self.tileCount[self.position] += 1
+        self.notVisitedTiles.discard(self.position)
+        if self.drawTileCount:
+            self.drawTileCount(self.position, self.tileCount[self.position])
+
+        # if wallCnt == 3:
+        #     self.tileCount[self.position] = 1000  # 行き止まりは非常に多く通ったことにする
+        #     if self.drawTileCount:
+        #         self.drawTileCount(
+        #             self.position, self.tileCount[self.position])
+
+        if len(self.notVisitedTiles) == 0:
+            return True
+        # 右手優先で進む方向を決定
+        if info[(self.direction - 90) % 360] != "wall":  # 右にタイルがある
+            self.rotate(-90)
+            self.updateWallCount()
+            self.move_forward()
+        elif info[self.direction] != "wall":  # 前にタイルがある
+            self.move_forward()
+
+        elif info[(self.direction + 90) % 360] != "wall":  # 左にタイルがある
+
+            self.rotate(90)
+            self.updateWallCount()
+            self.move_forward()
+
+        else:  # 後ろにタイルがある（行き止まり）
+            self.rotate(90)
+            self.updateWallCount()
+            self.rotate(90)
+            self.updateWallCount()
+            self.move_forward()
+        return False
 
     # 右手法 + α
 
@@ -370,8 +465,10 @@ class Explorer:
         return False
 
     def ExploreStepWithDijkstra(self):
+        # 位置ずらしした
+        # print("Current position:", self.position, "with posError:", self.posError)
         info = self.field.get_tile_info(
-            *self.position)
+            self.position[0] + self.posError[0], self.position[1] + self.posError[1])
         directions = {
             0: (1, 0),
             90: (0, -1),
@@ -397,6 +494,8 @@ class Explorer:
         self.mapping.mappingField.registerTile(
             (self.position[0], self.position[1]), incrementVisitTileCount=0)
         # 隣接壁情報を登録・更新
+        # 壁情報がマッピングと矛盾している場合はエラーを出力
+
         self.mapping.mappingField.registerWall(
             (self.position[0], self.position[1]), neighborWalls)
 
@@ -430,7 +529,7 @@ class Explorer:
             # print("Nearest unreached tile:", nearestTile, "Route:", route)
             if len(route) < 2:
                 return True
-            while len(route) > 1:
+            if len(route) > 1:
                 nextPos = route[1]
                 dx = nextPos[0] - self.position[0]
                 dy = nextPos[1] - self.position[1]
