@@ -106,5 +106,5 @@ def plot_cost_comparison(results_file="assessment_results.json"):
     print("Cost comparison plot saved to cost_comparison.png")
 
 if __name__ == "__main__":
-    assess_fields(10) # Run small batch
+    assess_fields(1000) # Run small batch
     plot_cost_comparison()

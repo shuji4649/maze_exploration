@@ -7,9 +7,9 @@ from .pathfinding import dijkstra, DijkstraResult
 class MappingField:
     def __init__(self):
         self.mapData: Dict[Tuple[int, int], MappingDataTileInfo | MappingDataWallInfo] = {} 
-        # Key is fieldCoord. fieldCoord = tileCoord * 2 + startTileOffset?
-        # Replicating logic from original code
-        self.startTile = (0, 0)
+        # Key is fieldCoord. fieldCoord = tileCoord * 2 + startTileOffset
+        # Field assumes walls on edges, so first tile is at (1, 1)
+        self.startTile = (1, 1)
 
     def tileCoord2FieldCoord(self, tile_x, tile_y):
         return (tile_x * 2 + self.startTile[0], tile_y * 2 + self.startTile[1])

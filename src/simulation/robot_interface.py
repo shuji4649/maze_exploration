@@ -5,16 +5,22 @@ from .field import Field
 class RobotInterface:
     def __init__(self, field: Field, 
                  move_hook: Optional[Callable[[], None]] = None, 
-                 turn_hook: Optional[Callable[[int], None]] = None):
+                 turn_hook: Optional[Callable[[int], None]] = None,
+                 straight_cost: int = 3,
+                 turn90_cost: int = 1):
         """
         Args:
             field: The simulation field.
             move_hook: Optional callback when moving forward (e.g. for GUI).
             turn_hook: Optional callback when turning (e.g. for GUI).
+            straight_cost: Cost for moving straight one tile.
+            turn90_cost: Cost for turning 90 degrees.
         """
         self.field = field
         self.move_hook = move_hook
         self.turn_hook = turn_hook
+        self.straight_cost = straight_cost
+        self.turn90_cost = turn90_cost
         
         # Initialize position from field start tile
         start_tile = self.field.jsonMapData.startTile
@@ -28,7 +34,7 @@ class RobotInterface:
         Returns:
             bool: True if move was successful (not blocked), though currently collisions might just happen.
         """
-        self.run_cost += 3 # goStraightCost
+        self.run_cost += self.straight_cost
         
         if self.move_hook:
             self.move_hook()
@@ -53,7 +59,7 @@ class RobotInterface:
         Args:
             angle: Angle to rotate (e.g. 90 for left, -90 for right).
         """
-        self.run_cost += 1 * (abs(angle) // 90) # turn90Cost
+        self.run_cost += self.turn90_cost * (abs(angle) // 90)
         
         # Update direction
         # Direction is IntEnum.

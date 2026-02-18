@@ -65,17 +65,18 @@ class Field:
         self.size = (self.jsonMapData.length, self.jsonMapData.width)
 
         for key, cell in self.jsonMapData.cells.items():
-            y, x, z = map(int, key.split(","))
-            if z != 0:
+            # Key format is "x,y,z"
+            x_val, y_val, z_val = map(int, key.split(","))
+            if z_val != 0:
                 continue
             if cell.isWall:
-                self.mapData[x][y] = 1
-                if x % 2 == 0 and y % 2 == 1:  # 縦壁
-                    self.mapData[x][y-1] = 1
-                    self.mapData[x][y+1] = 1
-                elif y % 2 == 0 and x % 2 == 1:  # 横壁
-                    self.mapData[x-1][y] = 1
-                    self.mapData[x+1][y] = 1
+                self.mapData[y_val][x_val] = 1 # Index as [row][col] which is [y][x]
+                if x_val % 2 == 0 and y_val % 2 == 1:  # 縦壁
+                    self.mapData[y_val+1][x_val] = 1
+                    self.mapData[y_val-1][x_val] = 1
+                elif y_val % 2 == 0 and x_val % 2 == 1:  # 横壁
+                    self.mapData[y_val][x_val-1] = 1
+                    self.mapData[y_val][x_val+1] = 1
                 else:
                     pass
             if cell.isTile:
@@ -84,10 +85,10 @@ class Field:
                 if cell.tile.reachable is False:
                     continue
 
-                self.mapData[x][y] = 2
+                self.mapData[y_val][x_val] = 2
 
                 if (cell.tile is not None) and cell.tile.blue:
-                    self.mapData[x][y] = 4 # Swamp
+                    self.mapData[y_val][x_val] = 4 # Swamp
 
         for i in range(self.size[0]):
             for j in range(self.size[1]):
