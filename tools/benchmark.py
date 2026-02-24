@@ -17,7 +17,7 @@ from tools.maze_generator import generate_maze_complex
 def generate_random_fields(range_min=0, range_max=50, length=10, width=10, height=1):
     os.makedirs("assesment_fields", exist_ok=True)
     for i in range(range_min, range_max):
-        field_name = f"field_{i}.json"
+        field_name = f"field_{i:04d}.json"
         maze = generate_maze_complex(
             length=length, width=width, height=height, extra_path_prob=random.uniform(0.2, 0.4))
         with open(os.path.join("assesment_fields", field_name), "w") as f:
@@ -104,6 +104,14 @@ def plot_cost_comparison(results_file="assessment_results.json"):
     plt.savefig("cost_comparison.png")
     # plt.show() # Don't block if running headless
     print("Cost comparison plot saved to cost_comparison.png")
+
+
+
+generate_random_fields(0, 100, 6, 6, 1)
+generate_random_fields(100, 200, 8, 8, 1)
+generate_random_fields(200, 300, 10, 10, 1)
+generate_random_fields(300, 400, 12, 12, 1)
+generate_random_fields(400, 500, 14, 14, 1)
 
 if __name__ == "__main__":
     assess_fields(1000) # Run small batch
