@@ -6,7 +6,7 @@ from typing import Optional, Dict, Tuple, Type, List
 from ..core.direction import Direction
 from ..simulation.field import Field
 from ..simulation.robot_interface import RobotInterface
-from ..algorithms.strategies import ExplorationStrategy, ReferenceRightHandStrategy, DynamicDijkstraStrategy, DynamicDijkstraIncludeDistanceFromStartStrategy
+from ..algorithms.strategies import ExplorationStrategy, ReferenceRightHandStrategy, DynamicDijkstraStrategy, DynamicDijkstraFarthestFirstStrategy
 
 # --- Theme & Style Constants ---
 # Metric / Scientific Color Palette
@@ -289,7 +289,7 @@ class PygameRenderer:
         
         y += 60
         self.btn_dijkstra_k = ModernButton(x, y, 260, 40, "Run Dijkstra + Dist(k)",
-                                           lambda: self.start_strategy(DynamicDijkstraIncludeDistanceFromStartStrategy, k=self.in_k.get_float_value()))
+                                           lambda: self.start_strategy(DynamicDijkstraFarthestFirstStrategy, k=self.in_k.get_float_value()))
         self.ui_elements.append(self.btn_dijkstra_k)
 
         y += 60

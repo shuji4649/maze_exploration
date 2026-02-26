@@ -278,7 +278,7 @@ class MapViewer:
 
     def run_dijkstra_with_k(self):
         k = self.k_value.get()
-        self.run_robot(DynamicDijkstraIncludeDistanceFromStartStrategy, k=k)
+        self.run_robot(DynamicDijkstraFarthestFirstStrategy, k=k)
 
     def packButtons(self):
         frame = Frame(self.root)

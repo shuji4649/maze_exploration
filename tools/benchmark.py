@@ -11,7 +11,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from src.simulation.field import Field
 from src.simulation.robot_interface import RobotInterface
-from src.algorithms.strategies import ReferenceRightHandStrategy, DynamicDijkstraStrategy, DynamicDijkstraIncludeDistanceFromStartStrategy
+from src.algorithms.strategies import ReferenceRightHandStrategy, DynamicDijkstraStrategy, DynamicDijkstraIncludeDistanceFromStartStrategy, DynamicDijkstraFarthestFirstStrategy
 from tools.maze_generator import generate_maze_complex
 
 def generate_random_fields(range_min=0, range_max=50, length=10, width=10, height=1):
@@ -32,7 +32,7 @@ def calc_exploration_cost(field: Field) -> Tuple[int, int]:
     
     # Right Hand
     robot_rh = RobotInterface(field)
-    strategy_rh = DynamicDijkstraIncludeDistanceFromStartStrategy(robot_rh,k=2)
+    strategy_rh = DynamicDijkstraFarthestFirstStrategy(robot_rh,k=4)
     while not strategy_rh.execute_step():
         pass
     cost_rh = robot_rh.run_cost
@@ -75,7 +75,7 @@ def assess_fields(num_fields=50):
             "proposed_cost": cost_proposed
         })
         print(f"{i}: {field_name} - RH: {cost_rh}, Prop: {cost_proposed}")
-
+    results.sort(key=lambda x: x["proposed_cost"])
     with open("assessment_results.json", "w") as f:
         json.dump(results, f, indent=4)
     print("Assessment results saved to assessment_results.json")
@@ -94,11 +94,11 @@ def plot_cost_comparison(results_file="assessment_results.json"):
     
     plt.rcParams["font.size"] = 14
     plt.figure(figsize=(10, 6))
-    plt.plot(field_indices, right_hand_costs, label="Right Hand Cost", marker='o', markersize=4, linestyle='-', alpha=0.7)
-    plt.plot(field_indices, proposed_costs, label="Proposed Cost", marker='x', markersize=4, linestyle='-', alpha=0.7)
+    plt.plot(field_indices, right_hand_costs, label="Considering distance from start", marker='o', markersize=4, linestyle='-', alpha=0.7)
+    plt.plot(field_indices, proposed_costs, label="Pure Nearest Method", marker='x', markersize=4, linestyle='-', alpha=0.7)
     plt.xlabel("Field Index")
     plt.ylabel("Exploration Cost")
-    plt.title("Exploration Cost Comparison")
+    plt.title("Exploration Cost Comparison(k=4)")
     plt.legend()
     plt.grid(True)
     plt.savefig("cost_comparison.png")
@@ -141,7 +141,7 @@ def plot_boxplot_variation_k(num_fields=200, k_values=[0.0, 0.2, 0.4, 0.6, 0.8, 
     print("Boxplot saved to k_variation_boxplot.png")
 
 
-def plot_violin_variation_k(num_fields=200, k_values=[0.0, 0.2, 0.4, 0.6, 1, 1.2, 1.4, 1.6]):
+def plot_violin_variation_k(num_fields=200, k_values=[0, 1, 2, 3, 4, 5, 6, 7,8]):
     if not os.path.exists("assesment_fields") or not os.listdir("assesment_fields"):
         generate_random_fields(0, num_fields)
         
@@ -158,7 +158,7 @@ def plot_violin_variation_k(num_fields=200, k_values=[0.0, 0.2, 0.4, 0.6, 1, 1.2
             field.readJson(json_data)
             
             robot = RobotInterface(field)
-            strategy = DynamicDijkstraIncludeDistanceFromStartStrategy(robot, k=k)
+            strategy = DynamicDijkstraFarthestFirstStrategy(robot, k=k)
             while not strategy.execute_step():
                 pass
             costs_for_k.append(robot.run_cost)
@@ -213,14 +213,14 @@ def plot_violin_variation_k(num_fields=200, k_values=[0.0, 0.2, 0.4, 0.6, 1, 1.2
     print("Violin plot saved to k_variation_violin.png")
 
 
-generate_random_fields(0, 200, 10, 10, 1)
+generate_random_fields(0, 200, 12, 6, 1)
 # generate_random_fields(100, 200, 8, 8, 1)
 # generate_random_fields(200, 300, 10, 10, 1)
 # generate_random_fields(300, 400, 12, 12, 1)
 # generate_random_fields(400, 500, 14, 14, 1)
 
 if __name__ == "__main__":
-    # assess_fields(200) # Run small batch
-    # plot_cost_comparison()
-    plot_violin_variation_k()
+    assess_fields(200) # Run small batch
+    plot_cost_comparison()
+    # plot_violin_variation_k(200)
     # plot_boxplot_variation_k()
