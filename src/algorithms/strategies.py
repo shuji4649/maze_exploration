@@ -458,6 +458,7 @@ class DynamicDijkstraFarthestFirstStrategy(ExplorationStrategy):
         self._cached_route: List[Tuple[int, int]] = []
         self._cached_target: Optional[Tuple[int, int]] = None
         self._route_index: int = 0  # 次に向かうべき route インデックス
+        self._cached_from_start: dict = {}  # スタートからのDijkstra結果キャッシュ
 
     def _is_target_unreached(self, pos: Tuple[int, int]) -> bool:
         """目標タイルがまだ未訪問かどうかを返す。"""
@@ -560,21 +561,21 @@ class DynamicDijkstraFarthestFirstStrategy(ExplorationStrategy):
                         return False
                 return True  # No unreached tiles found
 
-            # 2-2. スタートから全タイルへのDijkstraコストを取得（k2 > 0 のときのみ）
-            if self._k2 != 0:
-                from_start_results = self.mapping.dijkstra(
+            # 2-2. スタートから全タイルへのDijkstraコストを取得（k2 > 0 かつマップ変化時のみ再計算）
+            if self._k2 != 0 and map_changed:
+                self._cached_from_start = self.mapping.dijkstra(
                     self._start_position,
                     self._start_direction,
                     searchType="all"
                 )
-            else:
-                from_start_results = {}
+            elif self._k2 == 0:
+                self._cached_from_start = {}
 
             # 2-3. adjusted_cost = cost_from_current - k * manhattan - k2 * cost_from_start
             def adjusted_cost(pos):
                 cost_from_current = all_unreached[pos].cost
                 manhattan = abs(pos[0] - self._start_position[0]) + abs(pos[1] - self._start_position[1])
-                cost_from_start = from_start_results[pos].cost if pos in from_start_results else 0
+                cost_from_start = self._cached_from_start[pos].cost if pos in self._cached_from_start else 0
                 return cost_from_current - self._k * manhattan - self._k2 * cost_from_start
 
             # 2-4. adjusted_cost が最小のタイルを選択し、経路をキャッシュ
