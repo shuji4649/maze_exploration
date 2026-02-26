@@ -213,14 +213,124 @@ def plot_violin_variation_k(num_fields=200, k_values=[0, 0.2, 0.4, 0.6, 0.8, 1.0
     print("Violin plot saved to k_variation_violin.png")
 
 
-generate_random_fields(0, 200, 8, 8, 1)
+def grid_search_k1_k2(
+    num_fields: int = 200,
+    k1_values: list = [0, 1, 2, 3, 4, 5,6,7,8,9,10],
+    k2_values: list = [0, 0.1, 0.2, 0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0],
+    result_json: str = "grid_search_results.json",
+    result_png: str = "grid_search_heatmap.png",
+):
+    """
+    k1 (マンハッタン距離係数) と k2 (スタートDijkstraコスト係数) の
+    グリッドサーチを行い、平均探索コストをヒートマップで可視化する。
+    """
+    import numpy as np
+
+    if not os.path.exists("assesment_fields") or not os.listdir("assesment_fields"):
+        generate_random_fields(0, num_fields)
+
+    field_files = [
+        f for f in sorted(os.listdir("assesment_fields")) if f.endswith(".json")
+    ][:num_fields]
+
+    # フィールドデータを事前にすべて読み込む
+    fields_data = []
+    for fname in field_files:
+        with open(os.path.join("assesment_fields", fname)) as f:
+            json_data = json.load(f)
+        fields_data.append((fname, json_data))
+
+    total = len(k1_values) * len(k2_values)
+    done = 0
+
+    # mean_costs[i][j] = k1_values[i], k2_values[j] の平均コスト
+    mean_costs = [[0.0] * len(k2_values) for _ in range(len(k1_values))]
+    all_results = []
+
+    for i, k1 in enumerate(k1_values):
+        for j, k2 in enumerate(k2_values):
+            costs = []
+            for fname, json_data in fields_data:
+                field = Field(fname)
+                field.readJson(json_data)
+                robot = RobotInterface(field)
+                strategy = DynamicDijkstraFarthestFirstStrategy(robot, k=k1, k2=k2)
+                while not strategy.execute_step():
+                    pass
+                costs.append(robot.run_cost)
+            avg = sum(costs) / len(costs)
+            mean_costs[i][j] = avg
+            done += 1
+            all_results.append({"k1": k1, "k2": k2, "mean_cost": avg})
+            print(f"[{done}/{total}] k1={k1}, k2={k2} -> mean={avg:.1f}")
+
+    # JSON 保存
+    with open(result_json, "w") as f:
+        json.dump(all_results, f, indent=4)
+    print(f"Grid search results saved to {result_json}")
+
+    # 最良パラメータを表示
+    best = min(all_results, key=lambda x: x["mean_cost"])
+    print(f"Best: k1={best['k1']}, k2={best['k2']}, mean_cost={best['mean_cost']:.1f}")
+
+    # ヒートマップ描画
+    import numpy as np
+    mat = np.array(mean_costs)
+
+    plt.rcParams["font.size"] = 13
+    fig, ax = plt.subplots(
+        figsize=(max(6, len(k2_values) * 1.3), max(5, len(k1_values) * 1.0))
+    )
+
+    im = ax.imshow(mat, aspect="auto", cmap="RdYlGn_r", origin="upper")
+    plt.colorbar(im, ax=ax, label="Mean Exploration Cost")
+
+    ax.set_xticks(range(len(k2_values)))
+    ax.set_xticklabels([str(v) for v in k2_values])
+    ax.set_yticks(range(len(k1_values)))
+    ax.set_yticklabels([str(v) for v in k1_values])
+    ax.set_xlabel("k2 (Dijkstra cost from start)")
+    ax.set_ylabel("k1 (Manhattan distance from start)")
+    ax.set_title(
+        f"Grid Search: Mean Exploration Cost\n(n={num_fields} fields, size=10x10\nlower=better)"
+    )
+
+    # セルに数値を表示
+    for i in range(len(k1_values)):
+        for j in range(len(k2_values)):
+            ax.text(
+                j, i, f"{mat[i][j]:.0f}",
+                ha="center", va="center", fontsize=9, color="black"
+            )
+
+    # 最小コストのセルを青枠で強調
+    import numpy as np
+    min_idx = np.unravel_index(int(np.argmin(mat)), mat.shape)
+    rect = plt.Rectangle(
+        (min_idx[1] - 0.5, min_idx[0] - 0.5), 1, 1,
+        fill=False, edgecolor="blue", linewidth=2.5, label=f"Best (k1={k1_values[min_idx[0]]}, k2={k2_values[min_idx[1]]})"
+    )
+    ax.add_patch(rect)
+    ax.legend(loc="upper right", fontsize=10)
+
+    plt.tight_layout()
+    plt.savefig(result_png, dpi=150)
+    print(f"Heatmap saved to {result_png}")
+
+
+generate_random_fields(0, 200, 10, 10, 1)
 # generate_random_fields(100, 200, 8, 8, 1)
 # generate_random_fields(200, 300, 10, 10, 1)
 # generate_random_fields(300, 400, 12, 12, 1)
 # generate_random_fields(400, 500, 14, 14, 1)
 
 if __name__ == "__main__":
-    # assess_fields(200) # Run small batch
+    # assess_fields(200)
     # plot_cost_comparison()
-    plot_violin_variation_k(200)
+    # plot_violin_variation_k(200)
     # plot_boxplot_variation_k()
+    grid_search_k1_k2(
+        num_fields=10,
+        # k1_values=[0, 1, 2, 3, 4, 5],
+        # k2_values=[0, 0.4, 0.8, 1.2, 1.6, 2.0],
+    )
