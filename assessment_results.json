@@ -1,2502 +1,1002 @@
 [
     {
         "field": "field_0000.json",
-        "right_hand_cost": 200,
-        "proposed_cost": 181
+        "right_hand_cost": 1081,
+        "proposed_cost": 1132
     },
     {
         "field": "field_0001.json",
-        "right_hand_cost": 201,
-        "proposed_cost": 188
+        "right_hand_cost": 1341,
+        "proposed_cost": 1319
     },
     {
         "field": "field_0002.json",
-        "right_hand_cost": 232,
-        "proposed_cost": 165
+        "right_hand_cost": 1168,
+        "proposed_cost": 1258
     },
     {
         "field": "field_0003.json",
-        "right_hand_cost": 279,
-        "proposed_cost": 181
+        "right_hand_cost": 1156,
+        "proposed_cost": 1272
     },
     {
         "field": "field_0004.json",
-        "right_hand_cost": 247,
-        "proposed_cost": 205
-    },
-    {
-        "field": "field_0005.json",
-        "right_hand_cost": 204,
-        "proposed_cost": 181
-    },
-    {
-        "field": "field_0006.json",
-        "right_hand_cost": 223,
-        "proposed_cost": 193
-    },
-    {
-        "field": "field_0007.json",
-        "right_hand_cost": 260,
-        "proposed_cost": 176
-    },
-    {
-        "field": "field_0008.json",
-        "right_hand_cost": 183,
-        "proposed_cost": 192
-    },
-    {
-        "field": "field_0009.json",
-        "right_hand_cost": 238,
-        "proposed_cost": 167
-    },
-    {
-        "field": "field_0010.json",
-        "right_hand_cost": 287,
-        "proposed_cost": 180
-    },
-    {
-        "field": "field_0011.json",
-        "right_hand_cost": 245,
-        "proposed_cost": 190
-    },
-    {
-        "field": "field_0012.json",
-        "right_hand_cost": 194,
-        "proposed_cost": 212
-    },
-    {
-        "field": "field_0013.json",
-        "right_hand_cost": 205,
-        "proposed_cost": 171
-    },
-    {
-        "field": "field_0014.json",
-        "right_hand_cost": 139,
-        "proposed_cost": 140
-    },
-    {
-        "field": "field_0015.json",
-        "right_hand_cost": 270,
-        "proposed_cost": 168
-    },
-    {
-        "field": "field_0016.json",
-        "right_hand_cost": 214,
-        "proposed_cost": 182
-    },
-    {
-        "field": "field_0017.json",
-        "right_hand_cost": 220,
-        "proposed_cost": 198
-    },
-    {
-        "field": "field_0018.json",
-        "right_hand_cost": 205,
-        "proposed_cost": 179
-    },
-    {
-        "field": "field_0019.json",
-        "right_hand_cost": 204,
-        "proposed_cost": 179
-    },
-    {
-        "field": "field_0020.json",
-        "right_hand_cost": 358,
-        "proposed_cost": 176
-    },
-    {
-        "field": "field_0021.json",
-        "right_hand_cost": 261,
-        "proposed_cost": 218
-    },
-    {
-        "field": "field_0022.json",
-        "right_hand_cost": 253,
-        "proposed_cost": 172
-    },
-    {
-        "field": "field_0023.json",
-        "right_hand_cost": 227,
-        "proposed_cost": 177
-    },
-    {
-        "field": "field_0024.json",
-        "right_hand_cost": 232,
-        "proposed_cost": 236
-    },
-    {
-        "field": "field_0025.json",
-        "right_hand_cost": 280,
-        "proposed_cost": 172
-    },
-    {
-        "field": "field_0026.json",
-        "right_hand_cost": 176,
-        "proposed_cost": 156
-    },
-    {
-        "field": "field_0027.json",
-        "right_hand_cost": 240,
-        "proposed_cost": 194
-    },
-    {
-        "field": "field_0028.json",
-        "right_hand_cost": 229,
-        "proposed_cost": 217
-    },
-    {
-        "field": "field_0029.json",
-        "right_hand_cost": 278,
-        "proposed_cost": 208
-    },
-    {
-        "field": "field_0030.json",
-        "right_hand_cost": 300,
-        "proposed_cost": 209
-    },
-    {
-        "field": "field_0031.json",
-        "right_hand_cost": 329,
-        "proposed_cost": 217
-    },
-    {
-        "field": "field_0032.json",
-        "right_hand_cost": 232,
-        "proposed_cost": 175
-    },
-    {
-        "field": "field_0033.json",
-        "right_hand_cost": 311,
-        "proposed_cost": 212
-    },
-    {
-        "field": "field_0034.json",
-        "right_hand_cost": 217,
-        "proposed_cost": 217
-    },
-    {
-        "field": "field_0035.json",
-        "right_hand_cost": 247,
-        "proposed_cost": 174
-    },
-    {
-        "field": "field_0036.json",
-        "right_hand_cost": 200,
-        "proposed_cost": 205
-    },
-    {
-        "field": "field_0037.json",
-        "right_hand_cost": 190,
-        "proposed_cost": 178
-    },
-    {
-        "field": "field_0038.json",
-        "right_hand_cost": 172,
-        "proposed_cost": 192
-    },
-    {
-        "field": "field_0039.json",
-        "right_hand_cost": 216,
-        "proposed_cost": 221
-    },
-    {
-        "field": "field_0040.json",
-        "right_hand_cost": 204,
-        "proposed_cost": 184
-    },
-    {
-        "field": "field_0041.json",
-        "right_hand_cost": 206,
-        "proposed_cost": 217
-    },
-    {
-        "field": "field_0042.json",
-        "right_hand_cost": 354,
-        "proposed_cost": 220
-    },
-    {
-        "field": "field_0043.json",
-        "right_hand_cost": 246,
-        "proposed_cost": 218
-    },
-    {
-        "field": "field_0044.json",
-        "right_hand_cost": 206,
-        "proposed_cost": 194
-    },
-    {
-        "field": "field_0045.json",
-        "right_hand_cost": 272,
-        "proposed_cost": 151
-    },
-    {
-        "field": "field_0046.json",
-        "right_hand_cost": 160,
-        "proposed_cost": 163
-    },
-    {
-        "field": "field_0047.json",
-        "right_hand_cost": 219,
-        "proposed_cost": 165
-    },
-    {
-        "field": "field_0048.json",
-        "right_hand_cost": 289,
-        "proposed_cost": 172
-    },
-    {
-        "field": "field_0049.json",
-        "right_hand_cost": 252,
-        "proposed_cost": 227
-    },
-    {
-        "field": "field_0050.json",
-        "right_hand_cost": 310,
-        "proposed_cost": 224
-    },
-    {
-        "field": "field_0051.json",
-        "right_hand_cost": 239,
-        "proposed_cost": 180
-    },
-    {
-        "field": "field_0052.json",
-        "right_hand_cost": 267,
-        "proposed_cost": 215
-    },
-    {
-        "field": "field_0053.json",
-        "right_hand_cost": 300,
-        "proposed_cost": 198
-    },
-    {
-        "field": "field_0054.json",
-        "right_hand_cost": 168,
-        "proposed_cost": 178
-    },
-    {
-        "field": "field_0055.json",
-        "right_hand_cost": 244,
-        "proposed_cost": 203
-    },
-    {
-        "field": "field_0056.json",
-        "right_hand_cost": 222,
-        "proposed_cost": 226
-    },
-    {
-        "field": "field_0057.json",
-        "right_hand_cost": 316,
-        "proposed_cost": 213
-    },
-    {
-        "field": "field_0058.json",
-        "right_hand_cost": 194,
-        "proposed_cost": 207
-    },
-    {
-        "field": "field_0059.json",
-        "right_hand_cost": 214,
-        "proposed_cost": 200
-    },
-    {
-        "field": "field_0060.json",
-        "right_hand_cost": 186,
-        "proposed_cost": 186
-    },
-    {
-        "field": "field_0061.json",
-        "right_hand_cost": 211,
-        "proposed_cost": 193
-    },
-    {
-        "field": "field_0062.json",
-        "right_hand_cost": 216,
-        "proposed_cost": 184
-    },
-    {
-        "field": "field_0063.json",
-        "right_hand_cost": 194,
-        "proposed_cost": 177
-    },
-    {
-        "field": "field_0064.json",
-        "right_hand_cost": 213,
-        "proposed_cost": 231
-    },
-    {
-        "field": "field_0065.json",
-        "right_hand_cost": 184,
-        "proposed_cost": 161
-    },
-    {
-        "field": "field_0066.json",
-        "right_hand_cost": 195,
-        "proposed_cost": 201
-    },
-    {
-        "field": "field_0067.json",
-        "right_hand_cost": 262,
-        "proposed_cost": 192
-    },
-    {
-        "field": "field_0068.json",
-        "right_hand_cost": 209,
-        "proposed_cost": 265
-    },
-    {
-        "field": "field_0069.json",
-        "right_hand_cost": 303,
-        "proposed_cost": 219
-    },
-    {
-        "field": "field_0070.json",
-        "right_hand_cost": 210,
-        "proposed_cost": 194
-    },
-    {
-        "field": "field_0071.json",
-        "right_hand_cost": 284,
-        "proposed_cost": 190
-    },
-    {
-        "field": "field_0072.json",
-        "right_hand_cost": 237,
-        "proposed_cost": 232
-    },
-    {
-        "field": "field_0073.json",
-        "right_hand_cost": 181,
-        "proposed_cost": 202
-    },
-    {
-        "field": "field_0074.json",
-        "right_hand_cost": 192,
-        "proposed_cost": 214
-    },
-    {
-        "field": "field_0075.json",
-        "right_hand_cost": 288,
-        "proposed_cost": 195
-    },
-    {
-        "field": "field_0076.json",
-        "right_hand_cost": 216,
-        "proposed_cost": 221
-    },
-    {
-        "field": "field_0077.json",
-        "right_hand_cost": 272,
-        "proposed_cost": 218
-    },
-    {
-        "field": "field_0078.json",
-        "right_hand_cost": 252,
-        "proposed_cost": 203
-    },
-    {
-        "field": "field_0079.json",
-        "right_hand_cost": 276,
-        "proposed_cost": 189
-    },
-    {
-        "field": "field_0080.json",
-        "right_hand_cost": 245,
-        "proposed_cost": 197
-    },
-    {
-        "field": "field_0081.json",
-        "right_hand_cost": 186,
-        "proposed_cost": 163
-    },
-    {
-        "field": "field_0082.json",
-        "right_hand_cost": 146,
-        "proposed_cost": 157
-    },
-    {
-        "field": "field_0083.json",
-        "right_hand_cost": 321,
-        "proposed_cost": 216
-    },
-    {
-        "field": "field_0084.json",
-        "right_hand_cost": 310,
-        "proposed_cost": 170
-    },
-    {
-        "field": "field_0085.json",
-        "right_hand_cost": 348,
-        "proposed_cost": 179
-    },
-    {
-        "field": "field_0086.json",
-        "right_hand_cost": 355,
-        "proposed_cost": 185
-    },
-    {
-        "field": "field_0087.json",
-        "right_hand_cost": 296,
-        "proposed_cost": 193
-    },
-    {
-        "field": "field_0088.json",
-        "right_hand_cost": 369,
-        "proposed_cost": 219
-    },
-    {
-        "field": "field_0089.json",
-        "right_hand_cost": 222,
-        "proposed_cost": 209
-    },
-    {
-        "field": "field_0090.json",
-        "right_hand_cost": 172,
-        "proposed_cost": 167
-    },
-    {
-        "field": "field_0091.json",
-        "right_hand_cost": 329,
-        "proposed_cost": 190
-    },
-    {
-        "field": "field_0092.json",
-        "right_hand_cost": 241,
-        "proposed_cost": 190
-    },
-    {
-        "field": "field_0093.json",
-        "right_hand_cost": 177,
-        "proposed_cost": 174
-    },
-    {
-        "field": "field_0094.json",
-        "right_hand_cost": 268,
-        "proposed_cost": 212
-    },
-    {
-        "field": "field_0095.json",
-        "right_hand_cost": 245,
-        "proposed_cost": 209
-    },
-    {
-        "field": "field_0096.json",
-        "right_hand_cost": 208,
-        "proposed_cost": 221
-    },
-    {
-        "field": "field_0097.json",
-        "right_hand_cost": 328,
-        "proposed_cost": 179
-    },
-    {
-        "field": "field_0098.json",
-        "right_hand_cost": 211,
-        "proposed_cost": 201
-    },
-    {
-        "field": "field_0099.json",
-        "right_hand_cost": 150,
-        "proposed_cost": 159
-    },
-    {
-        "field": "field_0100.json",
-        "right_hand_cost": 323,
-        "proposed_cost": 345
-    },
-    {
-        "field": "field_0101.json",
-        "right_hand_cost": 462,
-        "proposed_cost": 301
-    },
-    {
-        "field": "field_0102.json",
-        "right_hand_cost": 483,
-        "proposed_cost": 337
-    },
-    {
-        "field": "field_0103.json",
-        "right_hand_cost": 507,
-        "proposed_cost": 427
-    },
-    {
-        "field": "field_0104.json",
-        "right_hand_cost": 434,
-        "proposed_cost": 359
-    },
-    {
-        "field": "field_0105.json",
-        "right_hand_cost": 535,
-        "proposed_cost": 355
-    },
-    {
-        "field": "field_0106.json",
-        "right_hand_cost": 476,
-        "proposed_cost": 333
-    },
-    {
-        "field": "field_0107.json",
-        "right_hand_cost": 339,
-        "proposed_cost": 340
-    },
-    {
-        "field": "field_0108.json",
-        "right_hand_cost": 556,
-        "proposed_cost": 341
-    },
-    {
-        "field": "field_0109.json",
-        "right_hand_cost": 510,
-        "proposed_cost": 304
-    },
-    {
-        "field": "field_0110.json",
-        "right_hand_cost": 427,
-        "proposed_cost": 344
-    },
-    {
-        "field": "field_0111.json",
-        "right_hand_cost": 579,
-        "proposed_cost": 356
-    },
-    {
-        "field": "field_0112.json",
-        "right_hand_cost": 556,
-        "proposed_cost": 390
-    },
-    {
-        "field": "field_0113.json",
-        "right_hand_cost": 379,
-        "proposed_cost": 339
-    },
-    {
-        "field": "field_0114.json",
-        "right_hand_cost": 531,
-        "proposed_cost": 401
-    },
-    {
-        "field": "field_0115.json",
-        "right_hand_cost": 621,
-        "proposed_cost": 376
-    },
-    {
-        "field": "field_0116.json",
-        "right_hand_cost": 696,
-        "proposed_cost": 328
-    },
-    {
-        "field": "field_0117.json",
-        "right_hand_cost": 624,
-        "proposed_cost": 389
-    },
-    {
-        "field": "field_0118.json",
-        "right_hand_cost": 489,
-        "proposed_cost": 374
-    },
-    {
-        "field": "field_0119.json",
-        "right_hand_cost": 490,
-        "proposed_cost": 348
-    },
-    {
-        "field": "field_0120.json",
-        "right_hand_cost": 629,
-        "proposed_cost": 369
-    },
-    {
-        "field": "field_0121.json",
-        "right_hand_cost": 462,
-        "proposed_cost": 358
-    },
-    {
-        "field": "field_0122.json",
-        "right_hand_cost": 464,
-        "proposed_cost": 346
-    },
-    {
-        "field": "field_0123.json",
-        "right_hand_cost": 543,
-        "proposed_cost": 393
-    },
-    {
-        "field": "field_0124.json",
-        "right_hand_cost": 623,
-        "proposed_cost": 341
-    },
-    {
-        "field": "field_0125.json",
-        "right_hand_cost": 350,
-        "proposed_cost": 312
-    },
-    {
-        "field": "field_0126.json",
-        "right_hand_cost": 467,
-        "proposed_cost": 399
-    },
-    {
-        "field": "field_0127.json",
-        "right_hand_cost": 403,
-        "proposed_cost": 379
-    },
-    {
-        "field": "field_0128.json",
-        "right_hand_cost": 357,
-        "proposed_cost": 313
-    },
-    {
-        "field": "field_0129.json",
-        "right_hand_cost": 536,
-        "proposed_cost": 354
-    },
-    {
-        "field": "field_0130.json",
-        "right_hand_cost": 473,
-        "proposed_cost": 405
-    },
-    {
-        "field": "field_0131.json",
-        "right_hand_cost": 476,
-        "proposed_cost": 399
-    },
-    {
-        "field": "field_0132.json",
-        "right_hand_cost": 514,
-        "proposed_cost": 390
-    },
-    {
-        "field": "field_0133.json",
-        "right_hand_cost": 969,
-        "proposed_cost": 393
-    },
-    {
-        "field": "field_0134.json",
-        "right_hand_cost": 535,
-        "proposed_cost": 400
-    },
-    {
-        "field": "field_0135.json",
-        "right_hand_cost": 532,
-        "proposed_cost": 399
-    },
-    {
-        "field": "field_0136.json",
-        "right_hand_cost": 486,
-        "proposed_cost": 384
-    },
-    {
-        "field": "field_0137.json",
-        "right_hand_cost": 518,
-        "proposed_cost": 425
-    },
-    {
-        "field": "field_0138.json",
-        "right_hand_cost": 486,
-        "proposed_cost": 299
-    },
-    {
-        "field": "field_0139.json",
-        "right_hand_cost": 569,
-        "proposed_cost": 376
-    },
-    {
-        "field": "field_0140.json",
-        "right_hand_cost": 459,
-        "proposed_cost": 345
-    },
-    {
-        "field": "field_0141.json",
-        "right_hand_cost": 373,
-        "proposed_cost": 315
-    },
-    {
-        "field": "field_0142.json",
-        "right_hand_cost": 544,
-        "proposed_cost": 337
-    },
-    {
-        "field": "field_0143.json",
-        "right_hand_cost": 522,
-        "proposed_cost": 352
-    },
-    {
-        "field": "field_0144.json",
-        "right_hand_cost": 489,
-        "proposed_cost": 361
-    },
-    {
-        "field": "field_0145.json",
-        "right_hand_cost": 369,
-        "proposed_cost": 368
-    },
-    {
-        "field": "field_0146.json",
-        "right_hand_cost": 458,
-        "proposed_cost": 364
-    },
-    {
-        "field": "field_0147.json",
-        "right_hand_cost": 983,
-        "proposed_cost": 364
-    },
-    {
-        "field": "field_0148.json",
-        "right_hand_cost": 338,
-        "proposed_cost": 363
-    },
-    {
-        "field": "field_0149.json",
-        "right_hand_cost": 590,
-        "proposed_cost": 361
-    },
-    {
-        "field": "field_0150.json",
-        "right_hand_cost": 784,
-        "proposed_cost": 308
-    },
-    {
-        "field": "field_0151.json",
-        "right_hand_cost": 618,
-        "proposed_cost": 358
-    },
-    {
-        "field": "field_0152.json",
-        "right_hand_cost": 640,
-        "proposed_cost": 366
-    },
-    {
-        "field": "field_0153.json",
-        "right_hand_cost": 455,
-        "proposed_cost": 385
-    },
-    {
-        "field": "field_0154.json",
-        "right_hand_cost": 539,
-        "proposed_cost": 373
-    },
-    {
-        "field": "field_0155.json",
-        "right_hand_cost": 561,
-        "proposed_cost": 397
-    },
-    {
-        "field": "field_0156.json",
-        "right_hand_cost": 431,
-        "proposed_cost": 382
-    },
-    {
-        "field": "field_0157.json",
-        "right_hand_cost": 476,
-        "proposed_cost": 355
-    },
-    {
-        "field": "field_0158.json",
-        "right_hand_cost": 414,
-        "proposed_cost": 365
-    },
-    {
-        "field": "field_0159.json",
-        "right_hand_cost": 808,
-        "proposed_cost": 352
-    },
-    {
-        "field": "field_0160.json",
-        "right_hand_cost": 342,
-        "proposed_cost": 409
-    },
-    {
-        "field": "field_0161.json",
-        "right_hand_cost": 494,
-        "proposed_cost": 400
-    },
-    {
-        "field": "field_0162.json",
-        "right_hand_cost": 571,
-        "proposed_cost": 339
-    },
-    {
-        "field": "field_0163.json",
-        "right_hand_cost": 534,
-        "proposed_cost": 324
-    },
-    {
-        "field": "field_0164.json",
-        "right_hand_cost": 614,
-        "proposed_cost": 387
-    },
-    {
-        "field": "field_0165.json",
-        "right_hand_cost": 781,
-        "proposed_cost": 379
-    },
-    {
-        "field": "field_0166.json",
-        "right_hand_cost": 749,
-        "proposed_cost": 408
-    },
-    {
-        "field": "field_0167.json",
-        "right_hand_cost": 417,
-        "proposed_cost": 357
-    },
-    {
-        "field": "field_0168.json",
-        "right_hand_cost": 848,
-        "proposed_cost": 377
-    },
-    {
-        "field": "field_0169.json",
-        "right_hand_cost": 553,
-        "proposed_cost": 363
-    },
-    {
-        "field": "field_0170.json",
-        "right_hand_cost": 635,
-        "proposed_cost": 328
-    },
-    {
-        "field": "field_0171.json",
-        "right_hand_cost": 489,
-        "proposed_cost": 336
-    },
-    {
-        "field": "field_0172.json",
-        "right_hand_cost": 375,
-        "proposed_cost": 309
-    },
-    {
-        "field": "field_0173.json",
-        "right_hand_cost": 381,
-        "proposed_cost": 342
-    },
-    {
-        "field": "field_0174.json",
-        "right_hand_cost": 400,
-        "proposed_cost": 319
-    },
-    {
-        "field": "field_0175.json",
-        "right_hand_cost": 485,
-        "proposed_cost": 316
-    },
-    {
-        "field": "field_0176.json",
-        "right_hand_cost": 349,
-        "proposed_cost": 355
-    },
-    {
-        "field": "field_0177.json",
-        "right_hand_cost": 768,
-        "proposed_cost": 370
-    },
-    {
-        "field": "field_0178.json",
-        "right_hand_cost": 434,
-        "proposed_cost": 371
-    },
-    {
-        "field": "field_0179.json",
-        "right_hand_cost": 697,
-        "proposed_cost": 328
-    },
-    {
-        "field": "field_0180.json",
-        "right_hand_cost": 447,
-        "proposed_cost": 374
-    },
-    {
-        "field": "field_0181.json",
-        "right_hand_cost": 355,
-        "proposed_cost": 348
-    },
-    {
-        "field": "field_0182.json",
-        "right_hand_cost": 500,
-        "proposed_cost": 374
-    },
-    {
-        "field": "field_0183.json",
-        "right_hand_cost": 571,
-        "proposed_cost": 386
-    },
-    {
-        "field": "field_0184.json",
-        "right_hand_cost": 508,
-        "proposed_cost": 338
-    },
-    {
-        "field": "field_0185.json",
-        "right_hand_cost": 420,
-        "proposed_cost": 294
-    },
-    {
-        "field": "field_0186.json",
-        "right_hand_cost": 577,
-        "proposed_cost": 383
-    },
-    {
-        "field": "field_0187.json",
-        "right_hand_cost": 440,
-        "proposed_cost": 353
-    },
-    {
-        "field": "field_0188.json",
-        "right_hand_cost": 369,
-        "proposed_cost": 347
-    },
-    {
-        "field": "field_0189.json",
-        "right_hand_cost": 429,
-        "proposed_cost": 399
-    },
-    {
-        "field": "field_0190.json",
-        "right_hand_cost": 472,
-        "proposed_cost": 411
-    },
-    {
-        "field": "field_0191.json",
-        "right_hand_cost": 348,
-        "proposed_cost": 348
-    },
-    {
-        "field": "field_0192.json",
-        "right_hand_cost": 463,
-        "proposed_cost": 375
-    },
-    {
-        "field": "field_0193.json",
-        "right_hand_cost": 717,
-        "proposed_cost": 357
-    },
-    {
-        "field": "field_0194.json",
-        "right_hand_cost": 713,
-        "proposed_cost": 419
-    },
-    {
-        "field": "field_0195.json",
-        "right_hand_cost": 429,
-        "proposed_cost": 402
-    },
-    {
-        "field": "field_0196.json",
-        "right_hand_cost": 452,
-        "proposed_cost": 370
-    },
-    {
-        "field": "field_0197.json",
-        "right_hand_cost": 436,
-        "proposed_cost": 332
-    },
-    {
-        "field": "field_0198.json",
-        "right_hand_cost": 439,
-        "proposed_cost": 320
-    },
-    {
-        "field": "field_0199.json",
-        "right_hand_cost": 533,
-        "proposed_cost": 383
-    },
-    {
-        "field": "field_0200.json",
-        "right_hand_cost": 714,
-        "proposed_cost": 559
-    },
-    {
-        "field": "field_0201.json",
-        "right_hand_cost": 695,
-        "proposed_cost": 493
-    },
-    {
-        "field": "field_0202.json",
-        "right_hand_cost": 719,
-        "proposed_cost": 564
-    },
-    {
-        "field": "field_0203.json",
-        "right_hand_cost": 866,
-        "proposed_cost": 584
-    },
-    {
-        "field": "field_0204.json",
-        "right_hand_cost": 821,
-        "proposed_cost": 622
-    },
-    {
-        "field": "field_0205.json",
-        "right_hand_cost": 1626,
-        "proposed_cost": 601
-    },
-    {
-        "field": "field_0206.json",
-        "right_hand_cost": 947,
-        "proposed_cost": 626
-    },
-    {
-        "field": "field_0207.json",
-        "right_hand_cost": 1047,
-        "proposed_cost": 626
-    },
-    {
-        "field": "field_0208.json",
-        "right_hand_cost": 547,
-        "proposed_cost": 577
-    },
-    {
-        "field": "field_0209.json",
-        "right_hand_cost": 736,
-        "proposed_cost": 631
-    },
-    {
-        "field": "field_0210.json",
-        "right_hand_cost": 590,
-        "proposed_cost": 517
-    },
-    {
-        "field": "field_0211.json",
-        "right_hand_cost": 1053,
-        "proposed_cost": 583
-    },
-    {
-        "field": "field_0212.json",
-        "right_hand_cost": 958,
-        "proposed_cost": 549
-    },
-    {
-        "field": "field_0213.json",
-        "right_hand_cost": 712,
-        "proposed_cost": 541
-    },
-    {
-        "field": "field_0214.json",
-        "right_hand_cost": 652,
-        "proposed_cost": 651
-    },
-    {
-        "field": "field_0215.json",
-        "right_hand_cost": 740,
-        "proposed_cost": 480
-    },
-    {
-        "field": "field_0216.json",
-        "right_hand_cost": 662,
-        "proposed_cost": 664
-    },
-    {
-        "field": "field_0217.json",
-        "right_hand_cost": 726,
-        "proposed_cost": 597
-    },
-    {
-        "field": "field_0218.json",
-        "right_hand_cost": 1001,
-        "proposed_cost": 549
-    },
-    {
-        "field": "field_0219.json",
-        "right_hand_cost": 796,
-        "proposed_cost": 608
-    },
-    {
-        "field": "field_0220.json",
-        "right_hand_cost": 850,
-        "proposed_cost": 571
-    },
-    {
-        "field": "field_0221.json",
-        "right_hand_cost": 821,
-        "proposed_cost": 572
-    },
-    {
-        "field": "field_0222.json",
-        "right_hand_cost": 763,
-        "proposed_cost": 583
-    },
-    {
-        "field": "field_0223.json",
-        "right_hand_cost": 737,
-        "proposed_cost": 644
-    },
-    {
-        "field": "field_0224.json",
-        "right_hand_cost": 958,
-        "proposed_cost": 616
-    },
-    {
-        "field": "field_0225.json",
-        "right_hand_cost": 757,
-        "proposed_cost": 556
-    },
-    {
-        "field": "field_0226.json",
-        "right_hand_cost": 715,
-        "proposed_cost": 635
-    },
-    {
-        "field": "field_0227.json",
-        "right_hand_cost": 894,
-        "proposed_cost": 630
-    },
-    {
-        "field": "field_0228.json",
-        "right_hand_cost": 783,
-        "proposed_cost": 592
-    },
-    {
-        "field": "field_0229.json",
-        "right_hand_cost": 665,
-        "proposed_cost": 615
-    },
-    {
-        "field": "field_0230.json",
-        "right_hand_cost": 1190,
-        "proposed_cost": 555
-    },
-    {
-        "field": "field_0231.json",
-        "right_hand_cost": 835,
-        "proposed_cost": 607
-    },
-    {
-        "field": "field_0232.json",
-        "right_hand_cost": 804,
-        "proposed_cost": 640
-    },
-    {
-        "field": "field_0233.json",
-        "right_hand_cost": 1297,
-        "proposed_cost": 552
-    },
-    {
-        "field": "field_0234.json",
-        "right_hand_cost": 858,
-        "proposed_cost": 650
-    },
-    {
-        "field": "field_0235.json",
-        "right_hand_cost": 800,
-        "proposed_cost": 597
-    },
-    {
-        "field": "field_0236.json",
-        "right_hand_cost": 1145,
-        "proposed_cost": 545
-    },
-    {
-        "field": "field_0237.json",
-        "right_hand_cost": 787,
-        "proposed_cost": 597
-    },
-    {
-        "field": "field_0238.json",
-        "right_hand_cost": 863,
-        "proposed_cost": 559
-    },
-    {
-        "field": "field_0239.json",
-        "right_hand_cost": 664,
-        "proposed_cost": 611
-    },
-    {
-        "field": "field_0240.json",
-        "right_hand_cost": 953,
-        "proposed_cost": 522
-    },
-    {
-        "field": "field_0241.json",
-        "right_hand_cost": 908,
-        "proposed_cost": 518
-    },
-    {
-        "field": "field_0242.json",
-        "right_hand_cost": 859,
-        "proposed_cost": 521
-    },
-    {
-        "field": "field_0243.json",
-        "right_hand_cost": 1007,
-        "proposed_cost": 650
-    },
-    {
-        "field": "field_0244.json",
-        "right_hand_cost": 730,
-        "proposed_cost": 505
-    },
-    {
-        "field": "field_0245.json",
-        "right_hand_cost": 1030,
-        "proposed_cost": 556
-    },
-    {
-        "field": "field_0246.json",
-        "right_hand_cost": 872,
-        "proposed_cost": 609
-    },
-    {
-        "field": "field_0247.json",
-        "right_hand_cost": 856,
-        "proposed_cost": 519
-    },
-    {
-        "field": "field_0248.json",
-        "right_hand_cost": 987,
-        "proposed_cost": 600
-    },
-    {
-        "field": "field_0249.json",
-        "right_hand_cost": 1051,
-        "proposed_cost": 597
-    },
-    {
-        "field": "field_0250.json",
-        "right_hand_cost": 719,
-        "proposed_cost": 588
-    },
-    {
-        "field": "field_0251.json",
-        "right_hand_cost": 814,
-        "proposed_cost": 551
-    },
-    {
-        "field": "field_0252.json",
-        "right_hand_cost": 866,
-        "proposed_cost": 493
-    },
-    {
-        "field": "field_0253.json",
-        "right_hand_cost": 831,
-        "proposed_cost": 541
-    },
-    {
-        "field": "field_0254.json",
-        "right_hand_cost": 961,
-        "proposed_cost": 610
-    },
-    {
-        "field": "field_0255.json",
-        "right_hand_cost": 934,
-        "proposed_cost": 578
-    },
-    {
-        "field": "field_0256.json",
-        "right_hand_cost": 826,
-        "proposed_cost": 593
-    },
-    {
-        "field": "field_0257.json",
-        "right_hand_cost": 600,
-        "proposed_cost": 521
-    },
-    {
-        "field": "field_0258.json",
-        "right_hand_cost": 808,
-        "proposed_cost": 612
-    },
-    {
-        "field": "field_0259.json",
-        "right_hand_cost": 779,
-        "proposed_cost": 660
-    },
-    {
-        "field": "field_0260.json",
-        "right_hand_cost": 690,
-        "proposed_cost": 545
-    },
-    {
-        "field": "field_0261.json",
-        "right_hand_cost": 785,
-        "proposed_cost": 621
-    },
-    {
-        "field": "field_0262.json",
-        "right_hand_cost": 647,
-        "proposed_cost": 557
-    },
-    {
-        "field": "field_0263.json",
-        "right_hand_cost": 873,
-        "proposed_cost": 611
-    },
-    {
-        "field": "field_0264.json",
-        "right_hand_cost": 998,
-        "proposed_cost": 576
-    },
-    {
-        "field": "field_0265.json",
-        "right_hand_cost": 787,
-        "proposed_cost": 647
-    },
-    {
-        "field": "field_0266.json",
-        "right_hand_cost": 840,
-        "proposed_cost": 608
-    },
-    {
-        "field": "field_0267.json",
-        "right_hand_cost": 685,
-        "proposed_cost": 494
-    },
-    {
-        "field": "field_0268.json",
-        "right_hand_cost": 646,
-        "proposed_cost": 554
-    },
-    {
-        "field": "field_0269.json",
-        "right_hand_cost": 844,
-        "proposed_cost": 536
-    },
-    {
-        "field": "field_0270.json",
-        "right_hand_cost": 785,
-        "proposed_cost": 552
-    },
-    {
-        "field": "field_0271.json",
-        "right_hand_cost": 917,
-        "proposed_cost": 583
-    },
-    {
-        "field": "field_0272.json",
-        "right_hand_cost": 774,
-        "proposed_cost": 559
-    },
-    {
-        "field": "field_0273.json",
-        "right_hand_cost": 529,
-        "proposed_cost": 516
-    },
-    {
-        "field": "field_0274.json",
-        "right_hand_cost": 512,
-        "proposed_cost": 479
-    },
-    {
-        "field": "field_0275.json",
-        "right_hand_cost": 638,
-        "proposed_cost": 530
-    },
-    {
-        "field": "field_0276.json",
-        "right_hand_cost": 724,
-        "proposed_cost": 560
-    },
-    {
-        "field": "field_0277.json",
-        "right_hand_cost": 955,
-        "proposed_cost": 573
-    },
-    {
-        "field": "field_0278.json",
-        "right_hand_cost": 982,
-        "proposed_cost": 560
-    },
-    {
-        "field": "field_0279.json",
-        "right_hand_cost": 1170,
-        "proposed_cost": 487
-    },
-    {
-        "field": "field_0280.json",
-        "right_hand_cost": 843,
-        "proposed_cost": 624
-    },
-    {
-        "field": "field_0281.json",
-        "right_hand_cost": 1147,
-        "proposed_cost": 535
-    },
-    {
-        "field": "field_0282.json",
-        "right_hand_cost": 700,
-        "proposed_cost": 543
-    },
-    {
-        "field": "field_0283.json",
-        "right_hand_cost": 943,
-        "proposed_cost": 591
-    },
-    {
-        "field": "field_0284.json",
-        "right_hand_cost": 716,
-        "proposed_cost": 600
-    },
-    {
-        "field": "field_0285.json",
-        "right_hand_cost": 736,
-        "proposed_cost": 515
-    },
-    {
-        "field": "field_0286.json",
-        "right_hand_cost": 693,
-        "proposed_cost": 679
-    },
-    {
-        "field": "field_0287.json",
-        "right_hand_cost": 774,
-        "proposed_cost": 600
-    },
-    {
-        "field": "field_0288.json",
-        "right_hand_cost": 1317,
-        "proposed_cost": 581
-    },
-    {
-        "field": "field_0289.json",
-        "right_hand_cost": 1139,
-        "proposed_cost": 532
-    },
-    {
-        "field": "field_0290.json",
-        "right_hand_cost": 843,
-        "proposed_cost": 541
-    },
-    {
-        "field": "field_0291.json",
-        "right_hand_cost": 799,
-        "proposed_cost": 558
-    },
-    {
-        "field": "field_0292.json",
-        "right_hand_cost": 1169,
-        "proposed_cost": 541
-    },
-    {
-        "field": "field_0293.json",
-        "right_hand_cost": 803,
-        "proposed_cost": 650
-    },
-    {
-        "field": "field_0294.json",
-        "right_hand_cost": 1110,
-        "proposed_cost": 508
-    },
-    {
-        "field": "field_0295.json",
-        "right_hand_cost": 867,
-        "proposed_cost": 510
-    },
-    {
-        "field": "field_0296.json",
-        "right_hand_cost": 639,
-        "proposed_cost": 545
-    },
-    {
-        "field": "field_0297.json",
-        "right_hand_cost": 908,
-        "proposed_cost": 532
-    },
-    {
-        "field": "field_0298.json",
-        "right_hand_cost": 1110,
-        "proposed_cost": 634
-    },
-    {
-        "field": "field_0299.json",
-        "right_hand_cost": 977,
-        "proposed_cost": 561
-    },
-    {
-        "field": "field_0300.json",
-        "right_hand_cost": 1456,
-        "proposed_cost": 896
-    },
-    {
-        "field": "field_0301.json",
-        "right_hand_cost": 1300,
-        "proposed_cost": 840
-    },
-    {
-        "field": "field_0302.json",
-        "right_hand_cost": 1361,
-        "proposed_cost": 1009
-    },
-    {
-        "field": "field_0303.json",
-        "right_hand_cost": 1068,
-        "proposed_cost": 772
-    },
-    {
-        "field": "field_0304.json",
-        "right_hand_cost": 1456,
-        "proposed_cost": 929
-    },
-    {
-        "field": "field_0305.json",
-        "right_hand_cost": 1070,
-        "proposed_cost": 873
-    },
-    {
-        "field": "field_0306.json",
-        "right_hand_cost": 1761,
-        "proposed_cost": 896
-    },
-    {
-        "field": "field_0307.json",
-        "right_hand_cost": 2187,
-        "proposed_cost": 981
-    },
-    {
-        "field": "field_0308.json",
-        "right_hand_cost": 1238,
-        "proposed_cost": 851
-    },
-    {
-        "field": "field_0309.json",
-        "right_hand_cost": 1279,
-        "proposed_cost": 898
-    },
-    {
-        "field": "field_0310.json",
-        "right_hand_cost": 1611,
-        "proposed_cost": 920
-    },
-    {
-        "field": "field_0311.json",
-        "right_hand_cost": 1190,
-        "proposed_cost": 727
-    },
-    {
-        "field": "field_0312.json",
-        "right_hand_cost": 1230,
-        "proposed_cost": 940
-    },
-    {
-        "field": "field_0313.json",
-        "right_hand_cost": 1211,
-        "proposed_cost": 977
-    },
-    {
-        "field": "field_0314.json",
-        "right_hand_cost": 1633,
-        "proposed_cost": 827
-    },
-    {
-        "field": "field_0315.json",
-        "right_hand_cost": 1321,
-        "proposed_cost": 921
-    },
-    {
-        "field": "field_0316.json",
-        "right_hand_cost": 1427,
-        "proposed_cost": 842
-    },
-    {
-        "field": "field_0317.json",
-        "right_hand_cost": 1463,
-        "proposed_cost": 775
-    },
-    {
-        "field": "field_0318.json",
-        "right_hand_cost": 1210,
-        "proposed_cost": 852
-    },
-    {
-        "field": "field_0319.json",
-        "right_hand_cost": 1824,
-        "proposed_cost": 878
-    },
-    {
-        "field": "field_0320.json",
-        "right_hand_cost": 1552,
-        "proposed_cost": 879
-    },
-    {
-        "field": "field_0321.json",
-        "right_hand_cost": 1481,
-        "proposed_cost": 892
-    },
-    {
-        "field": "field_0322.json",
-        "right_hand_cost": 1361,
-        "proposed_cost": 870
-    },
-    {
-        "field": "field_0323.json",
-        "right_hand_cost": 1060,
-        "proposed_cost": 737
-    },
-    {
-        "field": "field_0324.json",
-        "right_hand_cost": 1507,
-        "proposed_cost": 818
-    },
-    {
-        "field": "field_0325.json",
-        "right_hand_cost": 983,
-        "proposed_cost": 853
-    },
-    {
-        "field": "field_0326.json",
-        "right_hand_cost": 1539,
-        "proposed_cost": 817
-    },
-    {
-        "field": "field_0327.json",
-        "right_hand_cost": 1964,
-        "proposed_cost": 792
-    },
-    {
-        "field": "field_0328.json",
-        "right_hand_cost": 1250,
-        "proposed_cost": 798
-    },
-    {
-        "field": "field_0329.json",
-        "right_hand_cost": 866,
-        "proposed_cost": 828
-    },
-    {
-        "field": "field_0330.json",
-        "right_hand_cost": 1847,
-        "proposed_cost": 877
-    },
-    {
-        "field": "field_0331.json",
-        "right_hand_cost": 1070,
-        "proposed_cost": 821
-    },
-    {
-        "field": "field_0332.json",
-        "right_hand_cost": 1034,
-        "proposed_cost": 853
-    },
-    {
-        "field": "field_0333.json",
-        "right_hand_cost": 1151,
-        "proposed_cost": 767
-    },
-    {
-        "field": "field_0334.json",
-        "right_hand_cost": 1205,
-        "proposed_cost": 852
-    },
-    {
-        "field": "field_0335.json",
-        "right_hand_cost": 1136,
-        "proposed_cost": 811
-    },
-    {
-        "field": "field_0336.json",
-        "right_hand_cost": 969,
-        "proposed_cost": 864
-    },
-    {
-        "field": "field_0337.json",
-        "right_hand_cost": 1467,
-        "proposed_cost": 897
-    },
-    {
-        "field": "field_0338.json",
-        "right_hand_cost": 1275,
-        "proposed_cost": 832
-    },
-    {
-        "field": "field_0339.json",
-        "right_hand_cost": 1843,
-        "proposed_cost": 883
-    },
-    {
-        "field": "field_0340.json",
-        "right_hand_cost": 1020,
-        "proposed_cost": 812
-    },
-    {
-        "field": "field_0341.json",
-        "right_hand_cost": 2038,
-        "proposed_cost": 985
-    },
-    {
-        "field": "field_0342.json",
-        "right_hand_cost": 1171,
-        "proposed_cost": 871
-    },
-    {
-        "field": "field_0343.json",
-        "right_hand_cost": 1260,
-        "proposed_cost": 852
-    },
-    {
-        "field": "field_0344.json",
-        "right_hand_cost": 1059,
-        "proposed_cost": 837
-    },
-    {
-        "field": "field_0345.json",
-        "right_hand_cost": 1237,
-        "proposed_cost": 999
-    },
-    {
-        "field": "field_0346.json",
-        "right_hand_cost": 1262,
-        "proposed_cost": 918
-    },
-    {
-        "field": "field_0347.json",
-        "right_hand_cost": 1182,
-        "proposed_cost": 876
-    },
-    {
-        "field": "field_0348.json",
-        "right_hand_cost": 1346,
-        "proposed_cost": 830
-    },
-    {
-        "field": "field_0349.json",
-        "right_hand_cost": 1471,
-        "proposed_cost": 720
-    },
-    {
-        "field": "field_0350.json",
-        "right_hand_cost": 1751,
-        "proposed_cost": 790
-    },
-    {
-        "field": "field_0351.json",
-        "right_hand_cost": 1132,
-        "proposed_cost": 698
-    },
-    {
-        "field": "field_0352.json",
-        "right_hand_cost": 1453,
-        "proposed_cost": 875
-    },
-    {
-        "field": "field_0353.json",
-        "right_hand_cost": 1042,
-        "proposed_cost": 823
-    },
-    {
-        "field": "field_0354.json",
-        "right_hand_cost": 1118,
-        "proposed_cost": 849
-    },
-    {
-        "field": "field_0355.json",
-        "right_hand_cost": 1527,
-        "proposed_cost": 933
-    },
-    {
-        "field": "field_0356.json",
-        "right_hand_cost": 1607,
-        "proposed_cost": 856
-    },
-    {
-        "field": "field_0357.json",
-        "right_hand_cost": 1627,
-        "proposed_cost": 771
-    },
-    {
-        "field": "field_0358.json",
-        "right_hand_cost": 1458,
-        "proposed_cost": 847
-    },
-    {
-        "field": "field_0359.json",
-        "right_hand_cost": 1938,
-        "proposed_cost": 954
-    },
-    {
-        "field": "field_0360.json",
-        "right_hand_cost": 1608,
-        "proposed_cost": 749
-    },
-    {
-        "field": "field_0361.json",
-        "right_hand_cost": 1081,
-        "proposed_cost": 800
-    },
-    {
-        "field": "field_0362.json",
-        "right_hand_cost": 997,
-        "proposed_cost": 926
-    },
-    {
-        "field": "field_0363.json",
-        "right_hand_cost": 1627,
-        "proposed_cost": 905
-    },
-    {
-        "field": "field_0364.json",
-        "right_hand_cost": 1472,
-        "proposed_cost": 842
-    },
-    {
-        "field": "field_0365.json",
-        "right_hand_cost": 1994,
-        "proposed_cost": 854
-    },
-    {
-        "field": "field_0366.json",
-        "right_hand_cost": 1311,
-        "proposed_cost": 811
-    },
-    {
-        "field": "field_0367.json",
-        "right_hand_cost": 1670,
-        "proposed_cost": 899
-    },
-    {
-        "field": "field_0368.json",
-        "right_hand_cost": 2320,
-        "proposed_cost": 880
-    },
-    {
-        "field": "field_0369.json",
-        "right_hand_cost": 903,
-        "proposed_cost": 787
-    },
-    {
-        "field": "field_0370.json",
-        "right_hand_cost": 1073,
-        "proposed_cost": 785
-    },
-    {
-        "field": "field_0371.json",
-        "right_hand_cost": 1363,
-        "proposed_cost": 781
-    },
-    {
-        "field": "field_0372.json",
-        "right_hand_cost": 1257,
-        "proposed_cost": 894
-    },
-    {
-        "field": "field_0373.json",
-        "right_hand_cost": 1262,
-        "proposed_cost": 780
-    },
-    {
-        "field": "field_0374.json",
-        "right_hand_cost": 1366,
-        "proposed_cost": 817
-    },
-    {
-        "field": "field_0375.json",
-        "right_hand_cost": 1652,
-        "proposed_cost": 791
-    },
-    {
-        "field": "field_0376.json",
-        "right_hand_cost": 1320,
-        "proposed_cost": 828
-    },
-    {
-        "field": "field_0377.json",
-        "right_hand_cost": 2360,
-        "proposed_cost": 853
-    },
-    {
-        "field": "field_0378.json",
-        "right_hand_cost": 1592,
-        "proposed_cost": 857
-    },
-    {
-        "field": "field_0379.json",
-        "right_hand_cost": 1758,
-        "proposed_cost": 902
-    },
-    {
-        "field": "field_0380.json",
-        "right_hand_cost": 1207,
-        "proposed_cost": 730
-    },
-    {
-        "field": "field_0381.json",
-        "right_hand_cost": 2484,
-        "proposed_cost": 893
-    },
-    {
-        "field": "field_0382.json",
-        "right_hand_cost": 1034,
-        "proposed_cost": 800
-    },
-    {
-        "field": "field_0383.json",
-        "right_hand_cost": 1229,
-        "proposed_cost": 871
-    },
-    {
-        "field": "field_0384.json",
-        "right_hand_cost": 1873,
-        "proposed_cost": 859
-    },
-    {
-        "field": "field_0385.json",
-        "right_hand_cost": 822,
-        "proposed_cost": 724
-    },
-    {
-        "field": "field_0386.json",
-        "right_hand_cost": 1218,
-        "proposed_cost": 821
-    },
-    {
-        "field": "field_0387.json",
-        "right_hand_cost": 1322,
-        "proposed_cost": 871
-    },
-    {
-        "field": "field_0388.json",
-        "right_hand_cost": 1526,
-        "proposed_cost": 771
-    },
-    {
-        "field": "field_0389.json",
-        "right_hand_cost": 1063,
-        "proposed_cost": 820
-    },
-    {
-        "field": "field_0390.json",
-        "right_hand_cost": 2103,
-        "proposed_cost": 929
-    },
-    {
-        "field": "field_0391.json",
-        "right_hand_cost": 1430,
-        "proposed_cost": 723
-    },
-    {
-        "field": "field_0392.json",
-        "right_hand_cost": 1564,
-        "proposed_cost": 923
-    },
-    {
-        "field": "field_0393.json",
-        "right_hand_cost": 1182,
-        "proposed_cost": 873
-    },
-    {
-        "field": "field_0394.json",
-        "right_hand_cost": 1395,
-        "proposed_cost": 835
-    },
-    {
-        "field": "field_0395.json",
-        "right_hand_cost": 1347,
-        "proposed_cost": 807
-    },
-    {
-        "field": "field_0396.json",
-        "right_hand_cost": 1469,
-        "proposed_cost": 849
-    },
-    {
-        "field": "field_0397.json",
-        "right_hand_cost": 1085,
-        "proposed_cost": 865
-    },
-    {
-        "field": "field_0398.json",
-        "right_hand_cost": 1501,
-        "proposed_cost": 909
-    },
-    {
-        "field": "field_0399.json",
-        "right_hand_cost": 1490,
-        "proposed_cost": 884
-    },
-    {
-        "field": "field_0400.json",
-        "right_hand_cost": 1696,
-        "proposed_cost": 1160
-    },
-    {
-        "field": "field_0401.json",
-        "right_hand_cost": 2076,
-        "proposed_cost": 1177
-    },
-    {
-        "field": "field_0402.json",
-        "right_hand_cost": 1993,
-        "proposed_cost": 1085
-    },
-    {
-        "field": "field_0403.json",
-        "right_hand_cost": 1865,
-        "proposed_cost": 1200
-    },
-    {
-        "field": "field_0404.json",
-        "right_hand_cost": 1900,
-        "proposed_cost": 1061
-    },
-    {
-        "field": "field_0405.json",
-        "right_hand_cost": 1803,
-        "proposed_cost": 1124
-    },
-    {
-        "field": "field_0406.json",
-        "right_hand_cost": 2427,
-        "proposed_cost": 1212
-    },
-    {
-        "field": "field_0407.json",
-        "right_hand_cost": 2622,
-        "proposed_cost": 1134
-    },
-    {
-        "field": "field_0408.json",
-        "right_hand_cost": 1581,
-        "proposed_cost": 1045
-    },
-    {
-        "field": "field_0409.json",
-        "right_hand_cost": 1656,
-        "proposed_cost": 1191
-    },
-    {
-        "field": "field_0410.json",
-        "right_hand_cost": 1666,
-        "proposed_cost": 1099
-    },
-    {
-        "field": "field_0411.json",
-        "right_hand_cost": 2354,
-        "proposed_cost": 1090
-    },
-    {
-        "field": "field_0412.json",
-        "right_hand_cost": 1660,
-        "proposed_cost": 1092
-    },
-    {
-        "field": "field_0413.json",
-        "right_hand_cost": 1533,
-        "proposed_cost": 1233
-    },
-    {
-        "field": "field_0414.json",
-        "right_hand_cost": 1674,
-        "proposed_cost": 1137
-    },
-    {
-        "field": "field_0415.json",
-        "right_hand_cost": 3496,
-        "proposed_cost": 1204
-    },
-    {
-        "field": "field_0416.json",
-        "right_hand_cost": 1717,
-        "proposed_cost": 1162
-    },
-    {
-        "field": "field_0417.json",
-        "right_hand_cost": 1743,
-        "proposed_cost": 1160
-    },
-    {
-        "field": "field_0418.json",
-        "right_hand_cost": 1630,
-        "proposed_cost": 1253
-    },
-    {
-        "field": "field_0419.json",
-        "right_hand_cost": 2033,
-        "proposed_cost": 1308
-    },
-    {
-        "field": "field_0420.json",
-        "right_hand_cost": 1745,
-        "proposed_cost": 1280
-    },
-    {
-        "field": "field_0421.json",
-        "right_hand_cost": 1833,
-        "proposed_cost": 1136
-    },
-    {
-        "field": "field_0422.json",
-        "right_hand_cost": 1941,
-        "proposed_cost": 1080
-    },
-    {
-        "field": "field_0423.json",
-        "right_hand_cost": 2020,
-        "proposed_cost": 1134
-    },
-    {
-        "field": "field_0424.json",
-        "right_hand_cost": 1718,
-        "proposed_cost": 1063
-    },
-    {
-        "field": "field_0425.json",
-        "right_hand_cost": 1428,
-        "proposed_cost": 1006
-    },
-    {
-        "field": "field_0426.json",
-        "right_hand_cost": 1876,
-        "proposed_cost": 1270
-    },
-    {
-        "field": "field_0427.json",
-        "right_hand_cost": 1956,
-        "proposed_cost": 1212
-    },
-    {
-        "field": "field_0428.json",
-        "right_hand_cost": 1755,
-        "proposed_cost": 1237
-    },
-    {
-        "field": "field_0429.json",
-        "right_hand_cost": 1889,
-        "proposed_cost": 1266
-    },
-    {
-        "field": "field_0430.json",
-        "right_hand_cost": 1742,
-        "proposed_cost": 1153
-    },
-    {
-        "field": "field_0431.json",
-        "right_hand_cost": 1698,
-        "proposed_cost": 1221
-    },
-    {
-        "field": "field_0432.json",
-        "right_hand_cost": 2205,
-        "proposed_cost": 1329
-    },
-    {
-        "field": "field_0433.json",
-        "right_hand_cost": 2092,
-        "proposed_cost": 1280
-    },
-    {
-        "field": "field_0434.json",
-        "right_hand_cost": 1909,
-        "proposed_cost": 1198
-    },
-    {
-        "field": "field_0435.json",
-        "right_hand_cost": 2023,
-        "proposed_cost": 1221
-    },
-    {
-        "field": "field_0436.json",
-        "right_hand_cost": 2411,
-        "proposed_cost": 1213
-    },
-    {
-        "field": "field_0437.json",
-        "right_hand_cost": 2037,
-        "proposed_cost": 1248
-    },
-    {
-        "field": "field_0438.json",
-        "right_hand_cost": 2276,
-        "proposed_cost": 1255
-    },
-    {
-        "field": "field_0439.json",
-        "right_hand_cost": 2820,
-        "proposed_cost": 1230
-    },
-    {
-        "field": "field_0440.json",
-        "right_hand_cost": 1737,
-        "proposed_cost": 1166
-    },
-    {
-        "field": "field_0441.json",
-        "right_hand_cost": 1801,
-        "proposed_cost": 1198
-    },
-    {
-        "field": "field_0442.json",
-        "right_hand_cost": 2476,
-        "proposed_cost": 1082
-    },
-    {
-        "field": "field_0443.json",
-        "right_hand_cost": 2386,
-        "proposed_cost": 1244
-    },
-    {
-        "field": "field_0444.json",
-        "right_hand_cost": 2511,
-        "proposed_cost": 1259
-    },
-    {
-        "field": "field_0445.json",
-        "right_hand_cost": 2781,
-        "proposed_cost": 1083
-    },
-    {
-        "field": "field_0446.json",
-        "right_hand_cost": 2289,
-        "proposed_cost": 1166
-    },
-    {
-        "field": "field_0447.json",
-        "right_hand_cost": 1523,
-        "proposed_cost": 1041
-    },
-    {
-        "field": "field_0448.json",
-        "right_hand_cost": 1926,
-        "proposed_cost": 1098
-    },
-    {
-        "field": "field_0449.json",
-        "right_hand_cost": 2171,
-        "proposed_cost": 1071
-    },
-    {
-        "field": "field_0450.json",
-        "right_hand_cost": 2385,
-        "proposed_cost": 1249
-    },
-    {
-        "field": "field_0451.json",
-        "right_hand_cost": 1975,
-        "proposed_cost": 1031
-    },
-    {
-        "field": "field_0452.json",
-        "right_hand_cost": 2300,
-        "proposed_cost": 1101
-    },
-    {
-        "field": "field_0453.json",
-        "right_hand_cost": 1684,
-        "proposed_cost": 1100
-    },
-    {
-        "field": "field_0454.json",
-        "right_hand_cost": 2057,
-        "proposed_cost": 1074
-    },
-    {
-        "field": "field_0455.json",
-        "right_hand_cost": 2563,
-        "proposed_cost": 1161
-    },
-    {
-        "field": "field_0456.json",
-        "right_hand_cost": 2012,
-        "proposed_cost": 1183
-    },
-    {
-        "field": "field_0457.json",
-        "right_hand_cost": 2240,
-        "proposed_cost": 1178
-    },
-    {
-        "field": "field_0458.json",
-        "right_hand_cost": 1513,
-        "proposed_cost": 1194
-    },
-    {
-        "field": "field_0459.json",
-        "right_hand_cost": 2527,
-        "proposed_cost": 1172
-    },
-    {
-        "field": "field_0460.json",
-        "right_hand_cost": 1669,
-        "proposed_cost": 1126
-    },
-    {
-        "field": "field_0461.json",
-        "right_hand_cost": 2529,
-        "proposed_cost": 1274
-    },
-    {
-        "field": "field_0462.json",
-        "right_hand_cost": 2255,
-        "proposed_cost": 1199
-    },
-    {
-        "field": "field_0463.json",
-        "right_hand_cost": 2048,
-        "proposed_cost": 1045
-    },
-    {
-        "field": "field_0464.json",
-        "right_hand_cost": 1672,
-        "proposed_cost": 1124
-    },
-    {
-        "field": "field_0465.json",
-        "right_hand_cost": 2674,
-        "proposed_cost": 1171
-    },
-    {
-        "field": "field_0466.json",
-        "right_hand_cost": 1806,
-        "proposed_cost": 1188
-    },
-    {
-        "field": "field_0467.json",
-        "right_hand_cost": 1771,
-        "proposed_cost": 1135
-    },
-    {
-        "field": "field_0468.json",
-        "right_hand_cost": 2680,
-        "proposed_cost": 1242
-    },
-    {
-        "field": "field_0469.json",
-        "right_hand_cost": 2628,
-        "proposed_cost": 1176
-    },
-    {
-        "field": "field_0470.json",
-        "right_hand_cost": 2308,
-        "proposed_cost": 1009
-    },
-    {
-        "field": "field_0471.json",
-        "right_hand_cost": 1895,
+        "right_hand_cost": 1201,
         "proposed_cost": 1227
     },
     {
-        "field": "field_0472.json",
-        "right_hand_cost": 2214,
-        "proposed_cost": 1337
+        "field": "field_0005.json",
+        "right_hand_cost": 971,
+        "proposed_cost": 1065
     },
     {
-        "field": "field_0473.json",
-        "right_hand_cost": 2216,
-        "proposed_cost": 1131
+        "field": "field_0006.json",
+        "right_hand_cost": 1097,
+        "proposed_cost": 1125
     },
     {
-        "field": "field_0474.json",
-        "right_hand_cost": 2300,
-        "proposed_cost": 1108
+        "field": "field_0007.json",
+        "right_hand_cost": 999,
+        "proposed_cost": 1061
     },
     {
-        "field": "field_0475.json",
-        "right_hand_cost": 3069,
-        "proposed_cost": 1214
+        "field": "field_0008.json",
+        "right_hand_cost": 1142,
+        "proposed_cost": 1124
     },
     {
-        "field": "field_0476.json",
-        "right_hand_cost": 2449,
-        "proposed_cost": 1305
+        "field": "field_0009.json",
+        "right_hand_cost": 1056,
+        "proposed_cost": 1135
     },
     {
-        "field": "field_0477.json",
-        "right_hand_cost": 2573,
-        "proposed_cost": 1086
+        "field": "field_0010.json",
+        "right_hand_cost": 1098,
+        "proposed_cost": 1229
     },
     {
-        "field": "field_0478.json",
-        "right_hand_cost": 1872,
-        "proposed_cost": 1098
+        "field": "field_0011.json",
+        "right_hand_cost": 1275,
+        "proposed_cost": 1317
     },
     {
-        "field": "field_0479.json",
-        "right_hand_cost": 2567,
-        "proposed_cost": 1063
+        "field": "field_0012.json",
+        "right_hand_cost": 1212,
+        "proposed_cost": 1148
     },
     {
-        "field": "field_0480.json",
-        "right_hand_cost": 1808,
-        "proposed_cost": 1076
+        "field": "field_0013.json",
+        "right_hand_cost": 1108,
+        "proposed_cost": 1156
     },
     {
-        "field": "field_0481.json",
-        "right_hand_cost": 2869,
-        "proposed_cost": 1157
-    },
-    {
-        "field": "field_0482.json",
-        "right_hand_cost": 2330,
-        "proposed_cost": 1197
-    },
-    {
-        "field": "field_0483.json",
-        "right_hand_cost": 2222,
-        "proposed_cost": 1012
-    },
-    {
-        "field": "field_0484.json",
-        "right_hand_cost": 1628,
-        "proposed_cost": 1001
-    },
-    {
-        "field": "field_0485.json",
-        "right_hand_cost": 2089,
-        "proposed_cost": 1110
-    },
-    {
-        "field": "field_0486.json",
-        "right_hand_cost": 2108,
-        "proposed_cost": 1118
-    },
-    {
-        "field": "field_0487.json",
-        "right_hand_cost": 1828,
-        "proposed_cost": 1325
-    },
-    {
-        "field": "field_0488.json",
-        "right_hand_cost": 1549,
-        "proposed_cost": 1047
-    },
-    {
-        "field": "field_0489.json",
-        "right_hand_cost": 1783,
-        "proposed_cost": 1193
-    },
-    {
-        "field": "field_0490.json",
-        "right_hand_cost": 1574,
-        "proposed_cost": 1242
-    },
-    {
-        "field": "field_0491.json",
-        "right_hand_cost": 1616,
-        "proposed_cost": 1207
-    },
-    {
-        "field": "field_0492.json",
-        "right_hand_cost": 2399,
+        "field": "field_0014.json",
+        "right_hand_cost": 1208,
         "proposed_cost": 1084
     },
     {
-        "field": "field_0493.json",
-        "right_hand_cost": 1664,
-        "proposed_cost": 1016
+        "field": "field_0015.json",
+        "right_hand_cost": 1285,
+        "proposed_cost": 1305
     },
     {
-        "field": "field_0494.json",
-        "right_hand_cost": 2857,
-        "proposed_cost": 1303
+        "field": "field_0016.json",
+        "right_hand_cost": 1299,
+        "proposed_cost": 1261
     },
     {
-        "field": "field_0495.json",
-        "right_hand_cost": 1849,
-        "proposed_cost": 1218
+        "field": "field_0017.json",
+        "right_hand_cost": 1111,
+        "proposed_cost": 1127
     },
     {
-        "field": "field_0496.json",
-        "right_hand_cost": 1871,
-        "proposed_cost": 1147
+        "field": "field_0018.json",
+        "right_hand_cost": 1180,
+        "proposed_cost": 1208
     },
     {
-        "field": "field_0497.json",
-        "right_hand_cost": 2088,
-        "proposed_cost": 1236
+        "field": "field_0019.json",
+        "right_hand_cost": 1268,
+        "proposed_cost": 1374
     },
     {
-        "field": "field_0498.json",
-        "right_hand_cost": 1659,
+        "field": "field_0020.json",
+        "right_hand_cost": 1024,
+        "proposed_cost": 1070
+    },
+    {
+        "field": "field_0021.json",
+        "right_hand_cost": 1287,
+        "proposed_cost": 1239
+    },
+    {
+        "field": "field_0022.json",
+        "right_hand_cost": 1285,
+        "proposed_cost": 1277
+    },
+    {
+        "field": "field_0023.json",
+        "right_hand_cost": 1209,
+        "proposed_cost": 1211
+    },
+    {
+        "field": "field_0024.json",
+        "right_hand_cost": 1316,
+        "proposed_cost": 1360
+    },
+    {
+        "field": "field_0025.json",
+        "right_hand_cost": 1104,
+        "proposed_cost": 1155
+    },
+    {
+        "field": "field_0026.json",
+        "right_hand_cost": 1096,
+        "proposed_cost": 1117
+    },
+    {
+        "field": "field_0027.json",
+        "right_hand_cost": 1260,
+        "proposed_cost": 1333
+    },
+    {
+        "field": "field_0028.json",
+        "right_hand_cost": 1125,
+        "proposed_cost": 1206
+    },
+    {
+        "field": "field_0029.json",
+        "right_hand_cost": 1216,
+        "proposed_cost": 1214
+    },
+    {
+        "field": "field_0030.json",
+        "right_hand_cost": 1233,
+        "proposed_cost": 1237
+    },
+    {
+        "field": "field_0031.json",
+        "right_hand_cost": 1094,
+        "proposed_cost": 1129
+    },
+    {
+        "field": "field_0032.json",
+        "right_hand_cost": 1204,
+        "proposed_cost": 1292
+    },
+    {
+        "field": "field_0033.json",
+        "right_hand_cost": 1220,
+        "proposed_cost": 1265
+    },
+    {
+        "field": "field_0034.json",
+        "right_hand_cost": 1085,
+        "proposed_cost": 1039
+    },
+    {
+        "field": "field_0035.json",
+        "right_hand_cost": 1346,
+        "proposed_cost": 1281
+    },
+    {
+        "field": "field_0036.json",
+        "right_hand_cost": 1164,
+        "proposed_cost": 1167
+    },
+    {
+        "field": "field_0037.json",
+        "right_hand_cost": 1165,
+        "proposed_cost": 1182
+    },
+    {
+        "field": "field_0038.json",
+        "right_hand_cost": 1273,
+        "proposed_cost": 1223
+    },
+    {
+        "field": "field_0039.json",
+        "right_hand_cost": 1175,
+        "proposed_cost": 1319
+    },
+    {
+        "field": "field_0040.json",
+        "right_hand_cost": 1115,
+        "proposed_cost": 1141
+    },
+    {
+        "field": "field_0041.json",
+        "right_hand_cost": 1269,
+        "proposed_cost": 1295
+    },
+    {
+        "field": "field_0042.json",
+        "right_hand_cost": 1103,
+        "proposed_cost": 1155
+    },
+    {
+        "field": "field_0043.json",
+        "right_hand_cost": 1119,
+        "proposed_cost": 1133
+    },
+    {
+        "field": "field_0044.json",
+        "right_hand_cost": 1062,
+        "proposed_cost": 1054
+    },
+    {
+        "field": "field_0045.json",
+        "right_hand_cost": 1299,
+        "proposed_cost": 1275
+    },
+    {
+        "field": "field_0046.json",
+        "right_hand_cost": 1100,
+        "proposed_cost": 1124
+    },
+    {
+        "field": "field_0047.json",
+        "right_hand_cost": 1279,
+        "proposed_cost": 1285
+    },
+    {
+        "field": "field_0048.json",
+        "right_hand_cost": 1104,
+        "proposed_cost": 1094
+    },
+    {
+        "field": "field_0049.json",
+        "right_hand_cost": 1077,
+        "proposed_cost": 1082
+    },
+    {
+        "field": "field_0050.json",
+        "right_hand_cost": 1047,
+        "proposed_cost": 1077
+    },
+    {
+        "field": "field_0051.json",
+        "right_hand_cost": 1052,
+        "proposed_cost": 957
+    },
+    {
+        "field": "field_0052.json",
+        "right_hand_cost": 1118,
+        "proposed_cost": 1078
+    },
+    {
+        "field": "field_0053.json",
+        "right_hand_cost": 1266,
+        "proposed_cost": 1274
+    },
+    {
+        "field": "field_0054.json",
+        "right_hand_cost": 1120,
+        "proposed_cost": 1122
+    },
+    {
+        "field": "field_0055.json",
+        "right_hand_cost": 1280,
+        "proposed_cost": 1295
+    },
+    {
+        "field": "field_0056.json",
+        "right_hand_cost": 1141,
+        "proposed_cost": 1190
+    },
+    {
+        "field": "field_0057.json",
+        "right_hand_cost": 1216,
+        "proposed_cost": 1208
+    },
+    {
+        "field": "field_0058.json",
+        "right_hand_cost": 1089,
+        "proposed_cost": 1113
+    },
+    {
+        "field": "field_0059.json",
+        "right_hand_cost": 1054,
+        "proposed_cost": 1046
+    },
+    {
+        "field": "field_0060.json",
+        "right_hand_cost": 1302,
+        "proposed_cost": 1320
+    },
+    {
+        "field": "field_0061.json",
+        "right_hand_cost": 1228,
+        "proposed_cost": 1247
+    },
+    {
+        "field": "field_0062.json",
+        "right_hand_cost": 1364,
+        "proposed_cost": 1394
+    },
+    {
+        "field": "field_0063.json",
+        "right_hand_cost": 1259,
+        "proposed_cost": 1221
+    },
+    {
+        "field": "field_0064.json",
+        "right_hand_cost": 1150,
+        "proposed_cost": 1127
+    },
+    {
+        "field": "field_0065.json",
+        "right_hand_cost": 1102,
+        "proposed_cost": 1150
+    },
+    {
+        "field": "field_0066.json",
+        "right_hand_cost": 1240,
+        "proposed_cost": 1259
+    },
+    {
+        "field": "field_0067.json",
+        "right_hand_cost": 1119,
+        "proposed_cost": 1169
+    },
+    {
+        "field": "field_0068.json",
+        "right_hand_cost": 1116,
+        "proposed_cost": 1172
+    },
+    {
+        "field": "field_0069.json",
+        "right_hand_cost": 1246,
+        "proposed_cost": 1329
+    },
+    {
+        "field": "field_0070.json",
+        "right_hand_cost": 1068,
+        "proposed_cost": 1163
+    },
+    {
+        "field": "field_0071.json",
+        "right_hand_cost": 1120,
+        "proposed_cost": 1194
+    },
+    {
+        "field": "field_0072.json",
+        "right_hand_cost": 1097,
+        "proposed_cost": 1097
+    },
+    {
+        "field": "field_0073.json",
+        "right_hand_cost": 1022,
+        "proposed_cost": 1072
+    },
+    {
+        "field": "field_0074.json",
+        "right_hand_cost": 1161,
+        "proposed_cost": 1271
+    },
+    {
+        "field": "field_0075.json",
+        "right_hand_cost": 1017,
+        "proposed_cost": 1092
+    },
+    {
+        "field": "field_0076.json",
+        "right_hand_cost": 1155,
+        "proposed_cost": 1169
+    },
+    {
+        "field": "field_0077.json",
+        "right_hand_cost": 1073,
+        "proposed_cost": 1071
+    },
+    {
+        "field": "field_0078.json",
+        "right_hand_cost": 1041,
+        "proposed_cost": 1159
+    },
+    {
+        "field": "field_0079.json",
+        "right_hand_cost": 1188,
+        "proposed_cost": 1251
+    },
+    {
+        "field": "field_0080.json",
+        "right_hand_cost": 1117,
+        "proposed_cost": 1157
+    },
+    {
+        "field": "field_0081.json",
+        "right_hand_cost": 1166,
+        "proposed_cost": 1211
+    },
+    {
+        "field": "field_0082.json",
+        "right_hand_cost": 1084,
+        "proposed_cost": 1126
+    },
+    {
+        "field": "field_0083.json",
+        "right_hand_cost": 1203,
+        "proposed_cost": 1228
+    },
+    {
+        "field": "field_0084.json",
+        "right_hand_cost": 1163,
+        "proposed_cost": 1166
+    },
+    {
+        "field": "field_0085.json",
+        "right_hand_cost": 1128,
+        "proposed_cost": 1162
+    },
+    {
+        "field": "field_0086.json",
+        "right_hand_cost": 1134,
+        "proposed_cost": 1174
+    },
+    {
+        "field": "field_0087.json",
+        "right_hand_cost": 1220,
+        "proposed_cost": 1243
+    },
+    {
+        "field": "field_0088.json",
+        "right_hand_cost": 1245,
+        "proposed_cost": 1157
+    },
+    {
+        "field": "field_0089.json",
+        "right_hand_cost": 1173,
+        "proposed_cost": 1169
+    },
+    {
+        "field": "field_0090.json",
+        "right_hand_cost": 1267,
+        "proposed_cost": 1298
+    },
+    {
+        "field": "field_0091.json",
+        "right_hand_cost": 1188,
+        "proposed_cost": 1325
+    },
+    {
+        "field": "field_0092.json",
+        "right_hand_cost": 1044,
+        "proposed_cost": 1086
+    },
+    {
+        "field": "field_0093.json",
+        "right_hand_cost": 1198,
+        "proposed_cost": 1260
+    },
+    {
+        "field": "field_0094.json",
+        "right_hand_cost": 1218,
+        "proposed_cost": 1232
+    },
+    {
+        "field": "field_0095.json",
+        "right_hand_cost": 1038,
+        "proposed_cost": 1076
+    },
+    {
+        "field": "field_0096.json",
+        "right_hand_cost": 1163,
+        "proposed_cost": 1192
+    },
+    {
+        "field": "field_0097.json",
+        "right_hand_cost": 1202,
+        "proposed_cost": 1171
+    },
+    {
+        "field": "field_0098.json",
+        "right_hand_cost": 1236,
+        "proposed_cost": 1281
+    },
+    {
+        "field": "field_0099.json",
+        "right_hand_cost": 1268,
+        "proposed_cost": 1240
+    },
+    {
+        "field": "field_0100.json",
+        "right_hand_cost": 1195,
+        "proposed_cost": 1267
+    },
+    {
+        "field": "field_0101.json",
+        "right_hand_cost": 1119,
+        "proposed_cost": 1135
+    },
+    {
+        "field": "field_0102.json",
+        "right_hand_cost": 1256,
+        "proposed_cost": 1249
+    },
+    {
+        "field": "field_0103.json",
+        "right_hand_cost": 1192,
+        "proposed_cost": 1226
+    },
+    {
+        "field": "field_0104.json",
+        "right_hand_cost": 1119,
+        "proposed_cost": 1288
+    },
+    {
+        "field": "field_0105.json",
+        "right_hand_cost": 1319,
+        "proposed_cost": 1405
+    },
+    {
+        "field": "field_0106.json",
+        "right_hand_cost": 1370,
+        "proposed_cost": 1328
+    },
+    {
+        "field": "field_0107.json",
+        "right_hand_cost": 1176,
+        "proposed_cost": 1239
+    },
+    {
+        "field": "field_0108.json",
+        "right_hand_cost": 1036,
+        "proposed_cost": 1145
+    },
+    {
+        "field": "field_0109.json",
+        "right_hand_cost": 1070,
+        "proposed_cost": 1004
+    },
+    {
+        "field": "field_0110.json",
+        "right_hand_cost": 1135,
+        "proposed_cost": 1069
+    },
+    {
+        "field": "field_0111.json",
+        "right_hand_cost": 1290,
+        "proposed_cost": 1354
+    },
+    {
+        "field": "field_0112.json",
+        "right_hand_cost": 1085,
+        "proposed_cost": 1051
+    },
+    {
+        "field": "field_0113.json",
+        "right_hand_cost": 1193,
+        "proposed_cost": 1257
+    },
+    {
+        "field": "field_0114.json",
+        "right_hand_cost": 1162,
+        "proposed_cost": 1233
+    },
+    {
+        "field": "field_0115.json",
+        "right_hand_cost": 1244,
+        "proposed_cost": 1298
+    },
+    {
+        "field": "field_0116.json",
+        "right_hand_cost": 1108,
+        "proposed_cost": 1184
+    },
+    {
+        "field": "field_0117.json",
+        "right_hand_cost": 1037,
+        "proposed_cost": 1002
+    },
+    {
+        "field": "field_0118.json",
+        "right_hand_cost": 1069,
+        "proposed_cost": 1148
+    },
+    {
+        "field": "field_0119.json",
+        "right_hand_cost": 1256,
+        "proposed_cost": 1226
+    },
+    {
+        "field": "field_0120.json",
+        "right_hand_cost": 1132,
+        "proposed_cost": 1099
+    },
+    {
+        "field": "field_0121.json",
+        "right_hand_cost": 1091,
+        "proposed_cost": 1126
+    },
+    {
+        "field": "field_0122.json",
+        "right_hand_cost": 1176,
+        "proposed_cost": 1334
+    },
+    {
+        "field": "field_0123.json",
+        "right_hand_cost": 1180,
+        "proposed_cost": 1139
+    },
+    {
+        "field": "field_0124.json",
+        "right_hand_cost": 1160,
+        "proposed_cost": 1305
+    },
+    {
+        "field": "field_0125.json",
+        "right_hand_cost": 1275,
+        "proposed_cost": 1289
+    },
+    {
+        "field": "field_0126.json",
+        "right_hand_cost": 1154,
+        "proposed_cost": 1207
+    },
+    {
+        "field": "field_0127.json",
+        "right_hand_cost": 1175,
+        "proposed_cost": 1322
+    },
+    {
+        "field": "field_0128.json",
+        "right_hand_cost": 1171,
         "proposed_cost": 1231
     },
     {
-        "field": "field_0499.json",
-        "right_hand_cost": 1989,
-        "proposed_cost": 1190
+        "field": "field_0129.json",
+        "right_hand_cost": 1043,
+        "proposed_cost": 1077
+    },
+    {
+        "field": "field_0130.json",
+        "right_hand_cost": 1190,
+        "proposed_cost": 1209
+    },
+    {
+        "field": "field_0131.json",
+        "right_hand_cost": 1177,
+        "proposed_cost": 1177
+    },
+    {
+        "field": "field_0132.json",
+        "right_hand_cost": 1165,
+        "proposed_cost": 1199
+    },
+    {
+        "field": "field_0133.json",
+        "right_hand_cost": 1180,
+        "proposed_cost": 1220
+    },
+    {
+        "field": "field_0134.json",
+        "right_hand_cost": 1239,
+        "proposed_cost": 1255
+    },
+    {
+        "field": "field_0135.json",
+        "right_hand_cost": 1119,
+        "proposed_cost": 1018
+    },
+    {
+        "field": "field_0136.json",
+        "right_hand_cost": 1177,
+        "proposed_cost": 1155
+    },
+    {
+        "field": "field_0137.json",
+        "right_hand_cost": 1132,
+        "proposed_cost": 1125
+    },
+    {
+        "field": "field_0138.json",
+        "right_hand_cost": 1309,
+        "proposed_cost": 1297
+    },
+    {
+        "field": "field_0139.json",
+        "right_hand_cost": 1133,
+        "proposed_cost": 1231
+    },
+    {
+        "field": "field_0140.json",
+        "right_hand_cost": 1254,
+        "proposed_cost": 1250
+    },
+    {
+        "field": "field_0141.json",
+        "right_hand_cost": 1143,
+        "proposed_cost": 1247
+    },
+    {
+        "field": "field_0142.json",
+        "right_hand_cost": 1162,
+        "proposed_cost": 1218
+    },
+    {
+        "field": "field_0143.json",
+        "right_hand_cost": 1141,
+        "proposed_cost": 1131
+    },
+    {
+        "field": "field_0144.json",
+        "right_hand_cost": 1085,
+        "proposed_cost": 1117
+    },
+    {
+        "field": "field_0145.json",
+        "right_hand_cost": 1085,
+        "proposed_cost": 1146
+    },
+    {
+        "field": "field_0146.json",
+        "right_hand_cost": 1076,
+        "proposed_cost": 1030
+    },
+    {
+        "field": "field_0147.json",
+        "right_hand_cost": 1090,
+        "proposed_cost": 1141
+    },
+    {
+        "field": "field_0148.json",
+        "right_hand_cost": 1264,
+        "proposed_cost": 1330
+    },
+    {
+        "field": "field_0149.json",
+        "right_hand_cost": 1246,
+        "proposed_cost": 1282
+    },
+    {
+        "field": "field_0150.json",
+        "right_hand_cost": 1153,
+        "proposed_cost": 1127
+    },
+    {
+        "field": "field_0151.json",
+        "right_hand_cost": 1179,
+        "proposed_cost": 1274
+    },
+    {
+        "field": "field_0152.json",
+        "right_hand_cost": 1028,
+        "proposed_cost": 1100
+    },
+    {
+        "field": "field_0153.json",
+        "right_hand_cost": 1341,
+        "proposed_cost": 1279
+    },
+    {
+        "field": "field_0154.json",
+        "right_hand_cost": 1039,
+        "proposed_cost": 1132
+    },
+    {
+        "field": "field_0155.json",
+        "right_hand_cost": 1243,
+        "proposed_cost": 1129
+    },
+    {
+        "field": "field_0156.json",
+        "right_hand_cost": 982,
+        "proposed_cost": 1136
+    },
+    {
+        "field": "field_0157.json",
+        "right_hand_cost": 1311,
+        "proposed_cost": 1279
+    },
+    {
+        "field": "field_0158.json",
+        "right_hand_cost": 1076,
+        "proposed_cost": 1193
+    },
+    {
+        "field": "field_0159.json",
+        "right_hand_cost": 1140,
+        "proposed_cost": 1180
+    },
+    {
+        "field": "field_0160.json",
+        "right_hand_cost": 1156,
+        "proposed_cost": 1175
+    },
+    {
+        "field": "field_0161.json",
+        "right_hand_cost": 1297,
+        "proposed_cost": 1261
+    },
+    {
+        "field": "field_0162.json",
+        "right_hand_cost": 1093,
+        "proposed_cost": 1160
+    },
+    {
+        "field": "field_0163.json",
+        "right_hand_cost": 1228,
+        "proposed_cost": 1206
+    },
+    {
+        "field": "field_0164.json",
+        "right_hand_cost": 1225,
+        "proposed_cost": 1239
+    },
+    {
+        "field": "field_0165.json",
+        "right_hand_cost": 1090,
+        "proposed_cost": 1090
+    },
+    {
+        "field": "field_0166.json",
+        "right_hand_cost": 1101,
+        "proposed_cost": 1098
+    },
+    {
+        "field": "field_0167.json",
+        "right_hand_cost": 1155,
+        "proposed_cost": 1212
+    },
+    {
+        "field": "field_0168.json",
+        "right_hand_cost": 1227,
+        "proposed_cost": 1203
+    },
+    {
+        "field": "field_0169.json",
+        "right_hand_cost": 1246,
+        "proposed_cost": 1318
+    },
+    {
+        "field": "field_0170.json",
+        "right_hand_cost": 1152,
+        "proposed_cost": 1233
+    },
+    {
+        "field": "field_0171.json",
+        "right_hand_cost": 1076,
+        "proposed_cost": 1255
+    },
+    {
+        "field": "field_0172.json",
+        "right_hand_cost": 1358,
+        "proposed_cost": 1388
+    },
+    {
+        "field": "field_0173.json",
+        "right_hand_cost": 1260,
+        "proposed_cost": 1214
+    },
+    {
+        "field": "field_0174.json",
+        "right_hand_cost": 1206,
+        "proposed_cost": 1174
+    },
+    {
+        "field": "field_0175.json",
+        "right_hand_cost": 1147,
+        "proposed_cost": 1261
+    },
+    {
+        "field": "field_0176.json",
+        "right_hand_cost": 1066,
+        "proposed_cost": 1161
+    },
+    {
+        "field": "field_0177.json",
+        "right_hand_cost": 1103,
+        "proposed_cost": 1085
+    },
+    {
+        "field": "field_0178.json",
+        "right_hand_cost": 1115,
+        "proposed_cost": 1117
+    },
+    {
+        "field": "field_0179.json",
+        "right_hand_cost": 1050,
+        "proposed_cost": 1022
+    },
+    {
+        "field": "field_0180.json",
+        "right_hand_cost": 1157,
+        "proposed_cost": 1279
+    },
+    {
+        "field": "field_0181.json",
+        "right_hand_cost": 1120,
+        "proposed_cost": 1165
+    },
+    {
+        "field": "field_0182.json",
+        "right_hand_cost": 1110,
+        "proposed_cost": 1142
+    },
+    {
+        "field": "field_0183.json",
+        "right_hand_cost": 1192,
+        "proposed_cost": 1242
+    },
+    {
+        "field": "field_0184.json",
+        "right_hand_cost": 1214,
+        "proposed_cost": 1184
+    },
+    {
+        "field": "field_0185.json",
+        "right_hand_cost": 1062,
+        "proposed_cost": 1104
+    },
+    {
+        "field": "field_0186.json",
+        "right_hand_cost": 1092,
+        "proposed_cost": 1126
+    },
+    {
+        "field": "field_0187.json",
+        "right_hand_cost": 1278,
+        "proposed_cost": 1300
+    },
+    {
+        "field": "field_0188.json",
+        "right_hand_cost": 1250,
+        "proposed_cost": 1276
+    },
+    {
+        "field": "field_0189.json",
+        "right_hand_cost": 1173,
+        "proposed_cost": 1193
+    },
+    {
+        "field": "field_0190.json",
+        "right_hand_cost": 1252,
+        "proposed_cost": 1184
+    },
+    {
+        "field": "field_0191.json",
+        "right_hand_cost": 1221,
+        "proposed_cost": 1302
+    },
+    {
+        "field": "field_0192.json",
+        "right_hand_cost": 1189,
+        "proposed_cost": 1231
+    },
+    {
+        "field": "field_0193.json",
+        "right_hand_cost": 1038,
+        "proposed_cost": 1040
+    },
+    {
+        "field": "field_0194.json",
+        "right_hand_cost": 1142,
+        "proposed_cost": 1118
+    },
+    {
+        "field": "field_0195.json",
+        "right_hand_cost": 1145,
+        "proposed_cost": 1216
+    },
+    {
+        "field": "field_0196.json",
+        "right_hand_cost": 1207,
+        "proposed_cost": 1150
+    },
+    {
+        "field": "field_0197.json",
+        "right_hand_cost": 1055,
+        "proposed_cost": 1215
+    },
+    {
+        "field": "field_0198.json",
+        "right_hand_cost": 1163,
+        "proposed_cost": 1230
+    },
+    {
+        "field": "field_0199.json",
+        "right_hand_cost": 1263,
+        "proposed_cost": 1293
     }
 ]

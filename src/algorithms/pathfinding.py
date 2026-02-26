@@ -7,7 +7,7 @@ from ..core.direction import Direction
 
 @dataclass
 class DijkstraResult:
-    cost: int
+    cost: float
     route: List[Tuple[int, int]]
 
 def dijkstra(
@@ -15,7 +15,8 @@ def dijkstra(
     start_dir: Direction, 
     calc_costs_func: Callable[[Tuple[int, int]], Dict[Direction, int]],
     is_unreached_func: Callable[[Tuple[int, int]], bool],
-    search_type: str = "all"
+    search_type: str = "all",
+    k: float = 0
 ) -> Dict[Tuple[int, int], DijkstraResult]:
     """
     Dijkstra's algorithm for grid pathfinding.
@@ -34,7 +35,7 @@ def dijkstra(
     q.put((0, start, start_dir))  # (cost, position, direction)
     
     # distance map: (position, direction) -> cost
-    distances: Dict[Tuple[Tuple[int, int], Direction], int] = defaultdict(lambda: math.inf)
+    distances: Dict[Tuple[Tuple[int, int], Direction], float] = defaultdict(lambda: math.inf)
     distances[(start, start_dir)] = 0
     
     # routes reconstruction: (position, direction) -> list of positions
@@ -54,8 +55,8 @@ def dijkstra(
 
         if current_distance > distances[(current_position, current_direction)]:
             continue
-            
-        next_costs = calc_costs_func(current_position)
+        
+        next_costs = calc_costs_func(current_position) if k==0 else calc_costs_func(current_position, k)
         
         for direction, cost in next_costs.items():
             if math.isinf(cost):

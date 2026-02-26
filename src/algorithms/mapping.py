@@ -144,3 +144,46 @@ class Mapping:
             ),
             search_type=searchType
         )
+    def calcNextTileCost_include_distance_from_start(self, current: Tuple[int, int],k=0) -> Dict[Direction, float]:
+        costs = {}
+        wallInfo = self.mappingField.getWallInfo(current)
+        
+        for direction in Direction:
+            dx, dy = Direction.get_dx_dy(direction)
+            
+            # Check wall
+            if wallInfo[direction] is True or wallInfo[direction] is None:
+                costs[direction] = math.inf
+                continue
+                
+            neighbor = (current[0] + dx, current[1] + dy)
+            neighborTileInfo = self.mappingField.getTileInfo(neighbor)
+            
+            if neighborTileInfo is not None:
+                if neighborTileInfo.tileType == 4: # Swamp
+                     costs[direction] = 6
+                else:
+                    costs[direction] = 1
+            else:
+                costs[direction] = math.inf
+
+            # スタート地点までのマンハッタン距離をコストに加算する
+            # 修正係数
+            # distance_correction_factor = -0.2
+            costs[direction] -= k*((abs(neighbor[0] - self.mappingField.startTile[0]) + abs(neighbor[1] - self.mappingField.startTile[1]))-(abs(current[0] - self.mappingField.startTile[0]) + abs(current[1] - self.mappingField.startTile[1])))
+            if costs[direction] < 0:
+                costs[direction] = 0
+
+        return costs
+    def dijkstra_include_distance_from_start(self, start: Tuple[int, int], startDir: Direction, searchType: str = "all",k=0.2) -> Dict[Tuple[int, int], DijkstraResult]:
+        return dijkstra(
+            start=start,
+            start_dir=startDir,
+            calc_costs_func=self.calcNextTileCost_include_distance_from_start,
+            is_unreached_func=lambda pos: (
+                self.mappingField.getTileInfo(pos) is not None and 
+                self.mappingField.getTileInfo(pos).visitTileCount == 0
+            ),
+            search_type=searchType,
+            k=k
+        )

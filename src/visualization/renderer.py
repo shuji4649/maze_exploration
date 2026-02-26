@@ -6,7 +6,7 @@ from typing import Optional, Dict, Tuple, Type, List
 from ..core.direction import Direction
 from ..simulation.field import Field
 from ..simulation.robot_interface import RobotInterface
-from ..algorithms.strategies import ExplorationStrategy, ReferenceRightHandStrategy, DynamicDijkstraStrategy
+from ..algorithms.strategies import ExplorationStrategy, ReferenceRightHandStrategy, DynamicDijkstraStrategy, DynamicDijkstraIncludeDistanceFromStartStrategy
 
 # --- Theme & Style Constants ---
 # Metric / Scientific Color Palette
@@ -96,7 +96,7 @@ class ModernInput(UIElement):
             elif event.key == pygame.K_BACKSPACE:
                 self.text = self.text[:-1]
             else:
-                if event.unicode.isdigit(): # Number only for costs
+                if event.unicode.isdigit() or (event.unicode == '.' and '.' not in self.text):
                     self.text += event.unicode
         return False
 
@@ -120,6 +120,12 @@ class ModernInput(UIElement):
             return int(self.text)
         except:
             return 0
+
+    def get_float_value(self):
+        try:
+            return float(self.text)
+        except:
+            return 0.0
 
 class ModernDropdown(UIElement):
     def __init__(self, x, y, w, h, label, options):
@@ -276,6 +282,16 @@ class PygameRenderer:
                                    lambda: self.start_strategy(ReferenceRightHandStrategy))
         self.ui_elements.append(self.btn_rh)
         
+        y += 50
+        # Dijkstra + Distance from Start
+        self.in_k = ModernInput(x, y, 120, 35, "k Value", "0.2")
+        self.ui_elements.append(self.in_k)
+        
+        y += 60
+        self.btn_dijkstra_k = ModernButton(x, y, 260, 40, "Run Dijkstra + Dist(k)",
+                                           lambda: self.start_strategy(DynamicDijkstraIncludeDistanceFromStartStrategy, k=self.in_k.get_float_value()))
+        self.ui_elements.append(self.btn_dijkstra_k)
+
         y += 60
         self.btn_stop = ModernButton(x, y, 260, 40, "STOP / RESET", 
                                      self.stop_strategy, color=THEME["error"])
@@ -327,7 +343,7 @@ class PygameRenderer:
         self.camera_x = center_x - (cols * 40 * self.zoom) // 2
         self.camera_y = center_y - (rows * 40 * self.zoom) // 2
 
-    def start_strategy(self, strategy_cls):
+    def start_strategy(self, strategy_cls, **kwargs):
         if not self.fieldData: return
         self.stop_strategy()
         
@@ -335,7 +351,7 @@ class PygameRenderer:
         t_cost = self.in_turn.get_value()
         
         self.robot = RobotInterface(self.fieldData, straight_cost=s_cost, turn90_cost=t_cost)
-        self.strategy = strategy_cls(self.robot)
+        self.strategy = strategy_cls(self.robot, **kwargs)
         self.is_running = True
 
     def stop_strategy(self):

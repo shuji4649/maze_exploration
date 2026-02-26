@@ -19,7 +19,13 @@ def generate_maze_complex(length=8, width=8, height=1, extra_path_prob=0.3):
     grid_length = length * 2 + 1
     grid_width = width * 2 + 1
 
-    start_x, start_y, start_z = 1, 1, 0
+    # Randomly select start position from all valid tile coordinates
+    possible_starts = [
+        (x, y, 0)
+        for y in range(1, length * 2 + 1, 2)
+        for x in range(1, width * 2 + 1, 2)
+    ]
+    start_x, start_y, start_z = random.choice(possible_starts)
     start_tile_pos = JsonMapDataTilePosition(start_x, start_y, start_z)
 
     # 1. Initialization

@@ -7,7 +7,7 @@ from ..core.data_models import JsonMapData, JsonMapDataTile, JsonMapDataCell
 from ..core.direction import Direction
 from ..simulation.field import Field
 from ..simulation.robot_interface import RobotInterface
-from ..algorithms.strategies import ExplorationStrategy, ReferenceRightHandStrategy, DynamicDijkstraStrategy
+from ..algorithms.strategies import ExplorationStrategy, ReferenceRightHandStrategy, DynamicDijkstraStrategy, DynamicDijkstraIncludeDistanceFromStartStrategy
 from ..algorithms.mapping import MappingField
 
 class MapViewer:
@@ -238,7 +238,7 @@ class MapViewer:
                              wx, wy = cx + dx*offset, cy + dy*offset
                              self.canvas.create_text(wx, wy, text=str(count), fill="blue", font=("Helvetica", int(12 * self.map_scale), "bold"), tag="overlay")
 
-    def run_robot(self, strategy_cls: Type[ExplorationStrategy]):
+    def run_robot(self, strategy_cls: Type[ExplorationStrategy], **kwargs):
         if self.is_running: return
         if not self.fieldData: return
         
@@ -248,7 +248,7 @@ class MapViewer:
         self.robot = RobotInterface(self.fieldData, move_hook=self.on_robot_move, turn_hook=self.on_robot_turn)
         
         # Init Strategy
-        self.strategy = strategy_cls(self.robot, on_update_map=self.on_map_update)
+        self.strategy = strategy_cls(self.robot, on_update_map=self.on_map_update, **kwargs)
         
         self.update_status(f"Running {strategy_cls.__name__}...")
         
@@ -276,6 +276,10 @@ class MapViewer:
         self.canvas.create_text(int(400*self.map_scale), int(650*self.map_scale), text=text, fill="red", font=("Helvetica", int(16*self.map_scale), "bold"), tag="status")
 
 
+    def run_dijkstra_with_k(self):
+        k = self.k_value.get()
+        self.run_robot(DynamicDijkstraIncludeDistanceFromStartStrategy, k=k)
+
     def packButtons(self):
         frame = Frame(self.root)
         frame.pack(pady=10)
@@ -283,7 +287,17 @@ class MapViewer:
         Button(frame, text="Run Proposed (Dijkstra)", command=lambda: self.run_robot(DynamicDijkstraStrategy)).pack(side=LEFT, padx=5)
         Button(frame, text="Run Legacy (RightHand)", command=lambda: self.run_robot(ReferenceRightHandStrategy)).pack(side=LEFT, padx=5)
         Button(frame, text="Stop", command=self.stop_robot).pack(side=LEFT, padx=5)
-        
+
+        # Dijkstra + Distance from Start with k value
+        k_frame = Frame(self.root)
+        k_frame.pack(pady=5)
+
+        Label(k_frame, text="k value:").pack(side=LEFT, padx=(0, 5))
+        self.k_value = DoubleVar(value=0.2)
+        self.k_scale = Scale(k_frame, from_=0.0, to=2.0, resolution=0.1, orient=HORIZONTAL, variable=self.k_value, length=200)
+        self.k_scale.pack(side=LEFT, padx=5)
+        Button(k_frame, text="Run Dijkstra + Distance (k)", command=self.run_dijkstra_with_k).pack(side=LEFT, padx=5)
+
         # Toggles
         self.showTileCountToggle = BooleanVar(value=True)
         Checkbutton(self.root, text="Show Tile Count", variable=self.showTileCountToggle, command=self.draw_overlays).pack()

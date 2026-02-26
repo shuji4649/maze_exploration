@@ -1,4 +1,4 @@
-from typing import Callable, Optional, Set
+from typing import Callable, List, Optional, Set, Tuple
 from ..core.direction import Direction
 from ..core.data_models import MappingDataTileInfo
 from ..simulation.robot_interface import RobotInterface
@@ -18,11 +18,16 @@ class ReferenceRightHandStrategy(ExplorationStrategy):
     """
     Implements the "Right Hand + Alpha" strategy from the original code (ExploreStep).
     """
-    def __init__(self, robot: RobotInterface, on_update_map: Optional[Callable[[], None]] = None):
+    def __init__(self, robot: RobotInterface, on_update_map: Optional[Callable[[], None]] = None, return_to_start: bool = True):
         self.robot = robot
         self.mapping = Mapping()
         self.not_visited_tiles: Set[tuple[int, int]] = set()
         self.on_update_map = on_update_map
+        self.return_to_start = return_to_start
+        self._start_position: Tuple[int, int] = robot.position
+        self._returning = False
+        self._return_route: List[Tuple[int, int]] = []
+        self._return_route_index = 0
         
     def _update_map(self):
         sensor_data = self.robot.get_sensor_data()
@@ -49,7 +54,46 @@ class ReferenceRightHandStrategy(ExplorationStrategy):
         info = self.mapping.mappingField.getTileInfo(neighbor_pos)
         return info.visitTileCount if info else 0
 
+    def _navigate_to_next(self, next_pos: Tuple[int, int]) -> None:
+        """Navigate the robot one step toward next_pos."""
+        dx = next_pos[0] - self.robot.position[0]
+        dy = next_pos[1] - self.robot.position[1]
+
+        target_dir = None
+        if dx == 1 and dy == 0: target_dir = Direction.EAST
+        elif dx == -1 and dy == 0: target_dir = Direction.WEST
+        elif dx == 0 and dy == 1: target_dir = Direction.SOUTH
+        elif dx == 0 and dy == -1: target_dir = Direction.NORTH
+
+        if target_dir is None:
+            return
+
+        current_val = self.robot.direction.value
+        target_val = target_dir.value
+        diff = (target_val - current_val + 360) % 360
+
+        if diff == 90:
+            self.robot.rotate(90)
+        elif diff == 180:
+            self.robot.rotate(90)
+            self.robot.rotate(90)
+        elif diff == 270:
+            self.robot.rotate(-90)
+
+        self.robot.move_forward()
+
     def execute_step(self) -> bool:
+        # --- Returning phase ---
+        if self._returning:
+            if self._return_route_index >= len(self._return_route):
+                return True  # Arrived at start
+            next_pos = self._return_route[self._return_route_index]
+            self._navigate_to_next(next_pos)
+            self._return_route_index += 1
+            if self.on_update_map:
+                self.on_update_map()
+            return False
+
         sensor_data = self.robot.get_sensor_data()
         
         # Explore/Sense
@@ -66,6 +110,19 @@ class ReferenceRightHandStrategy(ExplorationStrategy):
         self.not_visited_tiles.discard(self.robot.position)
         
         if len(self.not_visited_tiles) == 0:
+            if self.return_to_start and self.robot.position != self._start_position:
+                # Plan route back to start
+                all_results = self.mapping.dijkstra(
+                    self.robot.position,
+                    self.robot.direction,
+                    searchType="all"
+                )
+                if self._start_position in all_results:
+                    route = all_results[self._start_position].route
+                    self._return_route = route[1:]  # Skip current position
+                    self._return_route_index = 0
+                    self._returning = True
+                    return False
             return True 
 
         # Decide Direction
@@ -131,12 +188,57 @@ class ReferenceRightHandStrategy(ExplorationStrategy):
 
 
 class DynamicDijkstraStrategy(ExplorationStrategy):
-    def __init__(self, robot: RobotInterface, on_update_map: Optional[Callable[[], None]] = None):
+    def __init__(self, robot: RobotInterface, on_update_map: Optional[Callable[[], None]] = None, return_to_start: bool = True):
         self.robot = robot
         self.mapping = Mapping()
         self.on_update_map = on_update_map
+        self.return_to_start = return_to_start
+        self._start_position: Tuple[int, int] = robot.position
+        self._returning = False
+        self._return_route: List[Tuple[int, int]] = []
+        self._return_route_index = 0
+
+    def _navigate_to_next(self, next_pos: Tuple[int, int]) -> None:
+        """Navigate the robot one step toward next_pos."""
+        dx = next_pos[0] - self.robot.position[0]
+        dy = next_pos[1] - self.robot.position[1]
+
+        target_dir = None
+        if dx == 1 and dy == 0: target_dir = Direction.EAST
+        elif dx == -1 and dy == 0: target_dir = Direction.WEST
+        elif dx == 0 and dy == 1: target_dir = Direction.SOUTH
+        elif dx == 0 and dy == -1: target_dir = Direction.NORTH
+
+        if target_dir is None:
+            print("Error: Invalid next position in route")
+            return
+
+        current_val = self.robot.direction.value
+        target_val = target_dir.value
+        diff = (target_val - current_val + 360) % 360
+
+        if diff == 90:
+            self.robot.rotate(90)
+        elif diff == 180:
+            self.robot.rotate(90)
+            self.robot.rotate(90)
+        elif diff == 270:
+            self.robot.rotate(-90)
+
+        self.robot.move_forward()
 
     def execute_step(self) -> bool:
+        # --- Returning phase ---
+        if self._returning:
+            if self._return_route_index >= len(self._return_route):
+                return True  # Arrived at start
+            next_pos = self._return_route[self._return_route_index]
+            self._navigate_to_next(next_pos)
+            self._return_route_index += 1
+            if self.on_update_map:
+                self.on_update_map()
+            return False
+
         # 1. Update Map (Sense)
         # Register neighbors to Mapping
         sensor_data = self.robot.get_sensor_data()
@@ -158,9 +260,6 @@ class DynamicDijkstraStrategy(ExplorationStrategy):
             if sensor_data[d] != "wall":
                 dx, dy = Direction.get_dx_dy(d)
                 neighbor_pos = (self.robot.position[0] + dx, self.robot.position[1] + dy)
-                # Register only if not exists?
-                # Mapping.registerTile checks internally.
-                # Just register it to ensure it exists in mapData
                 self.mapping.mappingField.registerTile(neighbor_pos)
 
         if self.on_update_map:
@@ -174,6 +273,19 @@ class DynamicDijkstraStrategy(ExplorationStrategy):
         )
         
         if not unreached_targets:
+            if self.return_to_start and self.robot.position != self._start_position:
+                # Plan route back to start
+                all_results = self.mapping.dijkstra(
+                    self.robot.position,
+                    self.robot.direction,
+                    searchType="all"
+                )
+                if self._start_position in all_results:
+                    route = all_results[self._start_position].route
+                    self._return_route = route[1:]  # Skip current position
+                    self._return_route_index = 0
+                    self._returning = True
+                    return False
             return True # No unreached tiles found
 
         # Find nearest
@@ -188,26 +300,41 @@ class DynamicDijkstraStrategy(ExplorationStrategy):
         next_pos = route[1]
         
         # 3. Act
-        # Calculate direction to next_pos
+        self._navigate_to_next(next_pos)
+        return False
+
+
+class DynamicDijkstraIncludeDistanceFromStartStrategy(ExplorationStrategy):
+    def __init__(self, robot: RobotInterface, on_update_map: Optional[Callable[[], None]] = None, return_to_start: bool = True,k=0.2):
+        self.robot = robot
+        self.mapping = Mapping()
+        self.on_update_map = on_update_map
+        self.return_to_start = return_to_start
+        self._start_position: Tuple[int, int] = robot.position
+        self._returning = False
+        self._return_route: List[Tuple[int, int]] = []
+        self._return_route_index = 0
+        self._k = k
+
+    def _navigate_to_next(self, next_pos: Tuple[int, int]) -> None:
+        """Navigate the robot one step toward next_pos."""
         dx = next_pos[0] - self.robot.position[0]
         dy = next_pos[1] - self.robot.position[1]
-        
+
         target_dir = None
         if dx == 1 and dy == 0: target_dir = Direction.EAST
         elif dx == -1 and dy == 0: target_dir = Direction.WEST
-        elif dx == 0 and dy == 1: target_dir = Direction.SOUTH # y+1 is South
-        elif dx == 0 and dy == -1: target_dir = Direction.NORTH # y-1 is North
-        
+        elif dx == 0 and dy == 1: target_dir = Direction.SOUTH
+        elif dx == 0 and dy == -1: target_dir = Direction.NORTH
+
         if target_dir is None:
-             print("Error: Invalid next position in route")
-             return True
-             
-        # Turn
+            print("Error: Invalid next position in route")
+            return
+
         current_val = self.robot.direction.value
         target_val = target_dir.value
-        
         diff = (target_val - current_val + 360) % 360
-        
+
         if diff == 90:
             self.robot.rotate(90)
         elif diff == 180:
@@ -215,6 +342,82 @@ class DynamicDijkstraStrategy(ExplorationStrategy):
             self.robot.rotate(90)
         elif diff == 270:
             self.robot.rotate(-90)
-            
+
         self.robot.move_forward()
+
+    def execute_step(self) -> bool:
+        # --- Returning phase ---
+        if self._returning:
+            if self._return_route_index >= len(self._return_route):
+                return True  # Arrived at start
+            next_pos = self._return_route[self._return_route_index]
+            self._navigate_to_next(next_pos)
+            self._return_route_index += 1
+            if self.on_update_map:
+                self.on_update_map()
+            return False
+
+        # 1. Update Map (Sense)
+        # Register neighbors to Mapping
+        sensor_data = self.robot.get_sensor_data()
+        neighbor_walls = {}
+        for d in Direction:
+            neighbor_walls[d.value] = (sensor_data[d] == "wall")
+        
+        # Register Wall
+        self.mapping.mappingField.registerWall(self.robot.position, neighbor_walls)
+        
+        # Register Current Tile (Visited)
+        self.mapping.mappingField.registerTile(
+            self.robot.position, 
+            incrementVisitTileCount=1
+        )
+        
+        # Register Neighbor Tiles (Unvisited if new)
+        for d in Direction:
+            if sensor_data[d] != "wall":
+                dx, dy = Direction.get_dx_dy(d)
+                neighbor_pos = (self.robot.position[0] + dx, self.robot.position[1] + dy)
+                self.mapping.mappingField.registerTile(neighbor_pos)
+
+        if self.on_update_map:
+            self.on_update_map()
+
+        # 2. Plan (Dijkstra)
+        unreached_targets = self.mapping.dijkstra_include_distance_from_start(
+            self.robot.position,
+            self.robot.direction,
+            searchType="nearestUnreached",
+            k=self._k
+        )
+        
+        if not unreached_targets:
+            if self.return_to_start and self.robot.position != self._start_position:
+                # Plan route back to start
+                all_results = self.mapping.dijkstra(
+                    self.robot.position,
+                    self.robot.direction,
+                    searchType="all"
+                )
+                if self._start_position in all_results:
+                    route = all_results[self._start_position].route
+                    self._return_route = route[1:]  # Skip current position
+                    self._return_route_index = 0
+                    self._returning = True
+                    return False
+            return True # No unreached tiles found
+
+        # Find nearest
+        nearest_pos = min(unreached_targets.keys(), key=lambda p: unreached_targets[p].cost)
+        result = unreached_targets[nearest_pos]
+        route = result.route
+        
+        if len(route) < 2:
+            # Already there?
+            return True
+            
+        next_pos = route[1]
+        
+        # 3. Act
+        self._navigate_to_next(next_pos)
         return False
