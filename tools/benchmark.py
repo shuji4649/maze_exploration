@@ -6,6 +6,7 @@ import sys
 from dataclasses import asdict
 from multiprocessing import Pool
 from typing import List, Tuple
+import optuna
 
 # Add project root to path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
@@ -342,14 +343,69 @@ def grid_search_k1_k2(
     print(f"Heatmap saved to {result_png}")
 
 
+def optimize_k1_k2_optuna(num_fields: int = 200, n_trials: int = 100):
+    """
+    Optuna を用いて k1 と k2 のベイズ最適化を行う。
+    """
+    if not os.path.exists("assesment_fields") or not os.listdir("assesment_fields"):
+        generate_random_fields(0, num_fields)
+
+    field_files = [
+        f for f in sorted(os.listdir("assesment_fields")) if f.endswith(".json")
+    ][:num_fields]
+
+    # フィールドデータを事前に読み込む
+    fields_data = []
+    for fname in field_files:
+        with open(os.path.join("assesment_fields", fname)) as f:
+            json_data = json.load(f)
+        fields_data.append((fname, json_data))
+
+    def objective(trial):
+        # 探索空間の定義
+        k1 = trial.suggest_float("k1", 0.0, 6.0)
+        k2 = trial.suggest_float("k2", 0.0, 0.5)
+        
+        costs = []
+        for fname, json_data in fields_data:
+            field = Field(fname)
+            field.readJson(json_data)
+            robot = RobotInterface(field)
+            strategy = DynamicDijkstraFarthestFirstStrategy(robot, k=k1, k2=k2)
+            while not strategy.execute_step():
+                pass
+            costs.append(robot.run_cost)
+            
+        return sum(costs) / len(costs)
+
+    print(f"Starting Optuna optimization with {n_trials} trials on {len(fields_data)} fields...")
+    
+    # 最適化の実行 (n_jobs=-1 でマルチプロセス実行)
+    study = optuna.create_study(direction="minimize")
+    study.optimize(objective, n_trials=n_trials, n_jobs=-1)
+
+    print("\noptimization finished!")
+    print(f"Best trial value: {study.best_value:.1f}")
+    print("Best params:")
+    for key, value in study.best_params.items():
+        print(f"    {key}: {value:.3f}")
+        
+    return study
+
+
 if __name__ == "__main__":
     # generate_random_fields(0, 200, 10, 10, 1)
     # assess_fields(200)
     # plot_cost_comparison()
     # plot_violin_variation_k(200)
     # plot_boxplot_variation_k()
-    grid_search_k1_k2(
-        num_fields=10,
-        # k1_values=[0, 4, 6],
-        # k2_values=[0, 0.2, 0.4],
-    )
+    
+    # --- グリッドサーチ ---
+    # grid_search_k1_k2(
+    #     num_fields=200,
+    #     k1_values=[0, 2, 4, 6,8],
+    #     k2_values=[0, 0.2,0.4,0.6,0.8],
+    # )
+    
+    # --- ベイズ最適化 (Optuna) ---
+    # optimize_k1_k2_optuna(num_fields=50, n_trials=100)
