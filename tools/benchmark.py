@@ -4,6 +4,7 @@ import os
 import random
 import sys
 from dataclasses import asdict
+from multiprocessing import Pool
 from typing import List, Tuple
 
 # Add project root to path
@@ -13,6 +14,29 @@ from src.simulation.field import Field
 from src.simulation.robot_interface import RobotInterface
 from src.algorithms.strategies import ReferenceRightHandStrategy, DynamicDijkstraStrategy, DynamicDijkstraIncludeDistanceFromStartStrategy, DynamicDijkstraFarthestFirstStrategy
 from tools.maze_generator import generate_maze_complex
+
+# --- multiprocessing ワーカー（Windows spawn 方式対応のためモジュールレベルで定義）---
+_worker_fields_data = None  # 各ワーカープロセスで共有するフィールドデータ
+
+def _worker_init(fields_data):
+    """Pool初期化時にフィールドデータをワーカープロセスにセットする。"""
+    global _worker_fields_data
+    _worker_fields_data = fields_data
+
+def _evaluate_combination(args):
+    """(k1, k2) の組み合わせで全フィールドを実行し平均コストを返す。"""
+    k1, k2 = args
+    costs = []
+    for fname, json_data in _worker_fields_data:
+        field = Field(fname)
+        field.readJson(json_data)
+        robot = RobotInterface(field)
+        strategy = DynamicDijkstraFarthestFirstStrategy(robot, k=k1, k2=k2)
+        while not strategy.execute_step():
+            pass
+        costs.append(robot.run_cost)
+    avg = sum(costs) / len(costs)
+    return k1, k2, avg
 
 def generate_random_fields(range_min=0, range_max=50, length=10, width=10, height=1):
     os.makedirs("assesment_fields", exist_ok=True)
@@ -247,18 +271,18 @@ def grid_search_k1_k2(
     mean_costs = [[0.0] * len(k2_values) for _ in range(len(k1_values))]
     all_results = []
 
-    for i, k1 in enumerate(k1_values):
-        for j, k2 in enumerate(k2_values):
-            costs = []
-            for fname, json_data in fields_data:
-                field = Field(fname)
-                field.readJson(json_data)
-                robot = RobotInterface(field)
-                strategy = DynamicDijkstraFarthestFirstStrategy(robot, k=k1, k2=k2)
-                while not strategy.execute_step():
-                    pass
-                costs.append(robot.run_cost)
-            avg = sum(costs) / len(costs)
+    task_args = [(k1, k2) for k1 in k1_values for k2 in k2_values]
+    num_workers = min(os.cpu_count() or 1, len(task_args))
+    print(f"Starting grid search with {num_workers} workers ({total} combinations x {len(fields_data)} fields)...")
+
+    with Pool(
+        processes=num_workers,
+        initializer=_worker_init,
+        initargs=(fields_data,)
+    ) as pool:
+        for k1, k2, avg in pool.imap_unordered(_evaluate_combination, task_args):
+            i = k1_values.index(k1)
+            j = k2_values.index(k2)
             mean_costs[i][j] = avg
             done += 1
             all_results.append({"k1": k1, "k2": k2, "mean_cost": avg})
@@ -318,19 +342,14 @@ def grid_search_k1_k2(
     print(f"Heatmap saved to {result_png}")
 
 
-generate_random_fields(0, 200, 10, 10, 1)
-# generate_random_fields(100, 200, 8, 8, 1)
-# generate_random_fields(200, 300, 10, 10, 1)
-# generate_random_fields(300, 400, 12, 12, 1)
-# generate_random_fields(400, 500, 14, 14, 1)
-
 if __name__ == "__main__":
+    # generate_random_fields(0, 200, 10, 10, 1)
     # assess_fields(200)
     # plot_cost_comparison()
     # plot_violin_variation_k(200)
     # plot_boxplot_variation_k()
     grid_search_k1_k2(
         num_fields=10,
-        # k1_values=[0, 1, 2, 3, 4, 5],
-        # k2_values=[0, 0.4, 0.8, 1.2, 1.6, 2.0],
+        # k1_values=[0, 4, 6],
+        # k2_values=[0, 0.2, 0.4],
     )
