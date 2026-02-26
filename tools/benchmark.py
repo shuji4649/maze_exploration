@@ -141,7 +141,7 @@ def plot_boxplot_variation_k(num_fields=200, k_values=[0.0, 0.2, 0.4, 0.6, 0.8, 
     print("Boxplot saved to k_variation_boxplot.png")
 
 
-def plot_violin_variation_k(num_fields=200, k_values=[0, 1, 2, 3, 4, 5, 6, 7,8]):
+def plot_violin_variation_k(num_fields=200, k_values=[0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4,1.6]):
     if not os.path.exists("assesment_fields") or not os.listdir("assesment_fields"):
         generate_random_fields(0, num_fields)
         
@@ -158,7 +158,7 @@ def plot_violin_variation_k(num_fields=200, k_values=[0, 1, 2, 3, 4, 5, 6, 7,8])
             field.readJson(json_data)
             
             robot = RobotInterface(field)
-            strategy = DynamicDijkstraFarthestFirstStrategy(robot, k=k)
+            strategy = DynamicDijkstraFarthestFirstStrategy(robot, k=0,k2=k)
             while not strategy.execute_step():
                 pass
             costs_for_k.append(robot.run_cost)
@@ -195,7 +195,7 @@ def plot_violin_variation_k(num_fields=200, k_values=[0, 1, 2, 3, 4, 5, 6, 7,8])
     ax.set_xticklabels([f"k={k}" for k in k_values])
     ax.set_xlabel("k value")
     ax.set_ylabel("Exploration Cost")
-    ax.set_title("Exploration Cost Distribution by k\n(DynamicDijkstraIncludeDistanceFromStart)")
+    ax.set_title("Exploration Cost Distribution by k2\n(DynamicDijkstraIncludeDistanceFromStart)")
     ax.grid(True, axis='y', linestyle='--', alpha=0.5)
 
     # 凡例
@@ -213,14 +213,14 @@ def plot_violin_variation_k(num_fields=200, k_values=[0, 1, 2, 3, 4, 5, 6, 7,8])
     print("Violin plot saved to k_variation_violin.png")
 
 
-generate_random_fields(0, 200, 12, 6, 1)
+generate_random_fields(0, 200, 8, 8, 1)
 # generate_random_fields(100, 200, 8, 8, 1)
 # generate_random_fields(200, 300, 10, 10, 1)
 # generate_random_fields(300, 400, 12, 12, 1)
 # generate_random_fields(400, 500, 14, 14, 1)
 
 if __name__ == "__main__":
-    assess_fields(200) # Run small batch
-    plot_cost_comparison()
-    # plot_violin_variation_k(200)
+    # assess_fields(200) # Run small batch
+    # plot_cost_comparison()
+    plot_violin_variation_k(200)
     # plot_boxplot_variation_k()
