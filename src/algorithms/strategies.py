@@ -454,6 +454,15 @@ class DynamicDijkstraFarthestFirstStrategy(ExplorationStrategy):
         self._return_route_index = 0
         self._k = k
         self._k2 = k2
+        # --- Route Cache ---
+        self._cached_route: List[Tuple[int, int]] = []
+        self._cached_target: Optional[Tuple[int, int]] = None
+        self._route_index: int = 0  # 次に向かうべき route インデックス
+
+    def _is_target_unreached(self, pos: Tuple[int, int]) -> bool:
+        """目標タイルがまだ未訪問かどうかを返す。"""
+        info = self.mapping.mappingField.getTileInfo(pos)
+        return info is not None and info.visitTileCount == 0
 
     def _navigate_to_next(self, next_pos: Tuple[int, int]) -> None:
         """Navigate the robot one step toward next_pos."""
@@ -497,6 +506,8 @@ class DynamicDijkstraFarthestFirstStrategy(ExplorationStrategy):
             return False
 
         # 1. Update Map (Sense)
+        map_count_before = len(self.mapping.mappingField.mapData)
+
         sensor_data = self.robot.get_sensor_data()
         neighbor_walls = {}
         for d in Direction:
@@ -516,55 +527,69 @@ class DynamicDijkstraFarthestFirstStrategy(ExplorationStrategy):
         if self.on_update_map:
             self.on_update_map()
 
-        # 2. Plan
-        # 2-1. 通常のDijkstraで全未到達タイルへの最短コストを取得
-        all_unreached = self.mapping.dijkstra(
-            self.robot.position,
-            self.robot.direction,
-            searchType="unreached"
+        map_changed = len(self.mapping.mappingField.mapData) > map_count_before
+
+        # 2. キャッシュの有効性判定
+        cache_valid = (
+            self._cached_target is not None
+            and self._route_index < len(self._cached_route)
+            and not map_changed
+            and self._is_target_unreached(self._cached_target)
         )
 
-        if not all_unreached:
-            if self.return_to_start and self.robot.position != self._start_position:
-                all_results = self.mapping.dijkstra(
-                    self.robot.position,
-                    self.robot.direction,
+        if not cache_valid:
+            # 2-1. 通常のDijkstraで全未到達タイルへの最短コストを取得
+            all_unreached = self.mapping.dijkstra(
+                self.robot.position,
+                self.robot.direction,
+                searchType="unreached"
+            )
+
+            if not all_unreached:
+                if self.return_to_start and self.robot.position != self._start_position:
+                    all_results = self.mapping.dijkstra(
+                        self.robot.position,
+                        self.robot.direction,
+                        searchType="all"
+                    )
+                    if self._start_position in all_results:
+                        route = all_results[self._start_position].route
+                        self._return_route = route[1:]
+                        self._return_route_index = 0
+                        self._returning = True
+                        return False
+                return True  # No unreached tiles found
+
+            # 2-2. スタートから全タイルへのDijkstraコストを取得（k2 > 0 のときのみ）
+            if self._k2 != 0:
+                from_start_results = self.mapping.dijkstra(
+                    self._start_position,
+                    self._start_direction,
                     searchType="all"
                 )
-                if self._start_position in all_results:
-                    route = all_results[self._start_position].route
-                    self._return_route = route[1:]
-                    self._return_route_index = 0
-                    self._returning = True
-                    return False
-            return True  # No unreached tiles found
+            else:
+                from_start_results = {}
 
-        # 2-2. スタートから全タイルへのDijkstraコストを取得（k2 > 0 のときのみ）
-        if self._k2 != 0:
-            from_start_results = self.mapping.dijkstra(
-                self._start_position,
-                self._start_direction,
-                searchType="all"
-            )
-        else:
-            from_start_results = {}
+            # 2-3. adjusted_cost = cost_from_current - k * manhattan - k2 * cost_from_start
+            def adjusted_cost(pos):
+                cost_from_current = all_unreached[pos].cost
+                manhattan = abs(pos[0] - self._start_position[0]) + abs(pos[1] - self._start_position[1])
+                cost_from_start = from_start_results[pos].cost if pos in from_start_results else 0
+                return cost_from_current - self._k * manhattan - self._k2 * cost_from_start
 
-        # 2-3. adjusted_cost = cost_from_current - k * manhattan - k2 * cost_from_start
-        def adjusted_cost(pos):
-            cost_from_current = all_unreached[pos].cost
-            manhattan = abs(pos[0] - self._start_position[0]) + abs(pos[1] - self._start_position[1])
-            cost_from_start = from_start_results[pos].cost if pos in from_start_results else 0
-            return cost_from_current - self._k * manhattan - self._k2 * cost_from_start
+            # 2-4. adjusted_cost が最小のタイルを選択し、経路をキャッシュ
+            target_pos = min(all_unreached.keys(), key=adjusted_cost)
+            result = all_unreached[target_pos]
 
-        # 2-4. adjusted_cost が最小のタイルを選択
-        target_pos = min(all_unreached.keys(), key=adjusted_cost)
-        result = all_unreached[target_pos]
-        route = result.route
+            if len(result.route) < 2:
+                return True
 
-        if len(route) < 2:
-            return True
+            self._cached_route = result.route
+            self._cached_target = target_pos
+            self._route_index = 1  # route[0] は現在地、route[1] が次ステップ
 
-        next_pos = route[1]
+        next_pos = self._cached_route[self._route_index]
+        self._route_index += 1
 
         # 3. Act
         self._navigate_to_next(next_pos)
