@@ -7,7 +7,7 @@ from ..core.data_models import JsonMapData, JsonMapDataTile, JsonMapDataCell
 from ..core.direction import Direction
 from ..simulation.field import Field
 from ..simulation.robot_interface import RobotInterface
-from ..algorithms.strategies import ExplorationStrategy, ReferenceRightHandStrategy, DynamicDijkstraStrategy, DynamicDijkstraIncludeDistanceFromStartStrategy
+from ..algorithms.strategies import ExplorationStrategy, ReferenceRightHandStrategy, DynamicDijkstraStrategy, DynamicDijkstraFarthestFirstStrategy
 from ..algorithms.mapping import MappingField
 
 class MapViewer:
@@ -277,8 +277,9 @@ class MapViewer:
 
 
     def run_dijkstra_with_k(self):
-        k = self.k_value.get()
-        self.run_robot(DynamicDijkstraFarthestFirstStrategy, k=k)
+        k1 = self.k_value.get()
+        k2 = self.k2_value.get()
+        self.run_robot(DynamicDijkstraFarthestFirstStrategy, k=k1, k2=k2)
 
     def packButtons(self):
         frame = Frame(self.root)
@@ -288,15 +289,24 @@ class MapViewer:
         Button(frame, text="Run Legacy (RightHand)", command=lambda: self.run_robot(ReferenceRightHandStrategy)).pack(side=LEFT, padx=5)
         Button(frame, text="Stop", command=self.stop_robot).pack(side=LEFT, padx=5)
 
-        # Dijkstra + Distance from Start with k value
+        # FarthestFirst Dijkstra と k1, k2 値
         k_frame = Frame(self.root)
         k_frame.pack(pady=5)
 
-        Label(k_frame, text="k value:").pack(side=LEFT, padx=(0, 5))
-        self.k_value = DoubleVar(value=0.2)
-        self.k_scale = Scale(k_frame, from_=0.0, to=2.0, resolution=0.1, orient=HORIZONTAL, variable=self.k_value, length=200)
+        Label(k_frame, text="k1 (Manhattan):").pack(side=LEFT, padx=(0, 5))
+        self.k_value = DoubleVar(value=4.0)
+        self.k_scale = Scale(k_frame, from_=0.0, to=10.0, resolution=0.5, orient=HORIZONTAL, variable=self.k_value, length=200)
         self.k_scale.pack(side=LEFT, padx=5)
-        Button(k_frame, text="Run Dijkstra + Distance (k)", command=self.run_dijkstra_with_k).pack(side=LEFT, padx=5)
+
+        k2_frame = Frame(self.root)
+        k2_frame.pack(pady=5)
+
+        Label(k2_frame, text="k2 (Dijkstra from start):").pack(side=LEFT, padx=(0, 5))
+        self.k2_value = DoubleVar(value=0.2)
+        self.k2_scale = Scale(k2_frame, from_=0.0, to=2.0, resolution=0.1, orient=HORIZONTAL, variable=self.k2_value, length=200)
+        self.k2_scale.pack(side=LEFT, padx=5)
+
+        Button(self.root, text="Run FarthestFirst Dijkstra (k1, k2)", command=self.run_dijkstra_with_k).pack(pady=5)
 
         # Toggles
         self.showTileCountToggle = BooleanVar(value=True)

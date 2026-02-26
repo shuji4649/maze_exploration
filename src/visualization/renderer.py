@@ -283,13 +283,15 @@ class PygameRenderer:
         self.ui_elements.append(self.btn_rh)
         
         y += 50
-        # Dijkstra + Distance from Start
-        self.in_k = ModernInput(x, y, 120, 35, "k Value", "0.2")
+        # FarthestFirst Dijkstra の k1, k2 入力
+        self.in_k = ModernInput(x, y, 115, 35, "k1 (Manhattan)", "4.0")
+        self.in_k2 = ModernInput(x + 135, y, 115, 35, "k2 (Dijkstra from start)", "0.2")
         self.ui_elements.append(self.in_k)
+        self.ui_elements.append(self.in_k2)
         
         y += 60
-        self.btn_dijkstra_k = ModernButton(x, y, 260, 40, "Run Dijkstra + Dist(k)",
-                                           lambda: self.start_strategy(DynamicDijkstraFarthestFirstStrategy, k=self.in_k.get_float_value()))
+        self.btn_dijkstra_k = ModernButton(x, y, 260, 40, "Run FarthestFirst (k1, k2)",
+                                           lambda: self.start_strategy(DynamicDijkstraFarthestFirstStrategy, k=self.in_k.get_float_value(), k2=self.in_k2.get_float_value()))
         self.ui_elements.append(self.btn_dijkstra_k)
 
         y += 60
