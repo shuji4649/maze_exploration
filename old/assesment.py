@@ -10,9 +10,9 @@ import os
 import heapq
 import math
 from queue import PriorityQueue
-from field import Field
-from explorer import Explorer
-import anahori
+from old.field import Field
+from old.explorer import Explorer
+import old.anahori
 import random
 
 # 500個のランダムフィールドを生成して、assesment_fieldsディレクトリに保存。
