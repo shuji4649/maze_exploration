@@ -22,3 +22,17 @@ Best trial value: 209.3
 Best params:
     k1: 2.258
     k2: 0.248
+
+----
+8x8 Field 
+
+Starting Optuna optimization with 100 trials on 200 fields...
+[I 2026-02-28 12:41:22,033] A new study created in memory with name: no-name-1ab98423-a56f-447c-acc3-2ef6e303f001
+
+optimization finished!
+Best trial value: 372.5
+Best params:
+    k1: 2.183
+    k2: 0.104
+
+---
