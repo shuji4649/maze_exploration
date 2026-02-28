@@ -408,4 +408,4 @@ if __name__ == "__main__":
     # )
     
     # --- ベイズ最適化 (Optuna) ---
-    optimize_k1_k2_optuna(num_fields=200, n_trials=100)
+    # optimize_k1_k2_optuna(num_fields=200, n_trials=100)
