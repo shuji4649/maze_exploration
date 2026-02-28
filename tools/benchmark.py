@@ -57,7 +57,7 @@ def calc_exploration_cost(field: Field) -> Tuple[int, int]:
     
     # Right Hand
     robot_rh = RobotInterface(field)
-    strategy_rh = DynamicDijkstraFarthestFirstStrategy(robot_rh,k=4)
+    strategy_rh = DynamicDijkstraFarthestFirstStrategy(robot_rh,k=2.6,k2=0.2)
     while not strategy_rh.execute_step():
         pass
     cost_rh = robot_rh.run_cost
@@ -123,7 +123,7 @@ def plot_cost_comparison(results_file="assessment_results.json"):
     plt.plot(field_indices, proposed_costs, label="Pure Nearest Method", marker='x', markersize=4, linestyle='-', alpha=0.7)
     plt.xlabel("Field Index")
     plt.ylabel("Exploration Cost")
-    plt.title("Exploration Cost Comparison(k=4)")
+    plt.title("Exploration Cost Comparison(k=2.6, k2=0.2)")
     plt.legend()
     plt.grid(True)
     plt.savefig("cost_comparison.png")
@@ -363,8 +363,8 @@ def optimize_k1_k2_optuna(num_fields: int = 200, n_trials: int = 100):
 
     def objective(trial):
         # 探索空間の定義
-        k1 = trial.suggest_float("k1", 0.0, 6.0)
-        k2 = trial.suggest_float("k2", 0.0, 0.5)
+        k1 = trial.suggest_float("k1", 2.0, 6.0)
+        k2 = trial.suggest_float("k2", 0.0, 0.4)
         
         costs = []
         for fname, json_data in fields_data:
@@ -394,18 +394,18 @@ def optimize_k1_k2_optuna(num_fields: int = 200, n_trials: int = 100):
 
 
 if __name__ == "__main__":
-    # generate_random_fields(0, 200, 10, 10, 1)
-    # assess_fields(200)
+    generate_random_fields(0, 200, 4, 10, 1)
+    # assess_fields(400)
     # plot_cost_comparison()
     # plot_violin_variation_k(200)
     # plot_boxplot_variation_k()
     
-    # --- グリッドサーチ ---
+    # # --- グリッドサーチ ---
     # grid_search_k1_k2(
     #     num_fields=200,
-    #     k1_values=[0, 2, 4, 6,8],
-    #     k2_values=[0, 0.2,0.4,0.6,0.8],
+    #     k1_values=[2,2.5,3,3.5,4,4.5,5],
+    #     k2_values=[0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4],
     # )
     
     # --- ベイズ最適化 (Optuna) ---
-    # optimize_k1_k2_optuna(num_fields=50, n_trials=100)
+    optimize_k1_k2_optuna(num_fields=200, n_trials=100)

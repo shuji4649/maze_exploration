@@ -1,0 +1,24 @@
+10x10 Field
+
+Starting Optuna optimization with 100 trials on 200 fields...
+
+[I 2026-02-26 14:43:23,224] A new study created in memory with name: no-name-48964e82-61a3-4d75-abe8-58c2caf27743
+
+optimization finished!
+Best trial value: 578.1
+Best params:
+    k1: 2.598
+    k2: 0.208
+
+
+---
+6x6 Field
+
+Starting Optuna optimization with 100 trials on 200 fields...
+[I 2026-02-26 20:37:40,372] A new study created in memory with name: no-name-66e13297-84bd-436c-b816-a23add6a9d9f
+
+optimization finished!
+Best trial value: 209.3
+Best params:
+    k1: 2.258
+    k2: 0.248
