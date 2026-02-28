@@ -394,18 +394,18 @@ def optimize_k1_k2_optuna(num_fields: int = 200, n_trials: int = 100):
 
 
 if __name__ == "__main__":
-    generate_random_fields(0, 200, 4, 10, 1)
+    generate_random_fields(0, 200, 6, 9, 1)
     # assess_fields(400)
     # plot_cost_comparison()
     # plot_violin_variation_k(200)
     # plot_boxplot_variation_k()
     
     # --- グリッドサーチ ---
-    # grid_search_k1_k2(
-    #     num_fields=200,
-    #     k1_values=[0,1,2,3,4,5,6,7,8],
-    #     k2_values=[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8],
-    # )
+    grid_search_k1_k2(
+        num_fields=200,
+        k1_values=[0,1,2,3,4,5,6,7,8],
+        k2_values=[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8],
+    )
     
     # --- ベイズ最適化 (Optuna) ---
-    # optimize_k1_k2_optuna(num_fields=200, n_trials=100)
+    optimize_k1_k2_optuna(num_fields=200, n_trials=100)
