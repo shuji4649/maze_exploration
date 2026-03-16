@@ -7,7 +7,7 @@ class RobotInterface:
                  move_hook: Optional[Callable[[], None]] = None, 
                  turn_hook: Optional[Callable[[int], None]] = None,
                  straight_cost: int = 3,
-                 turn90_cost: int = 1):
+                 turn90_cost: int = 2):
         """
         Args:
             field: The simulation field.
